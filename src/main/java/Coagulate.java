@@ -180,7 +180,7 @@ public class Coagulate {
 		public Response moveBase64(
 				@QueryParam("filePath") String iFilePath1,
 				@QueryParam("destinationDirSimpleName") String iDestinationDirSimpleName)
-				throws JSONException, IOException {
+				throws JSONException, IOException, Exception {
 			System.err.println("moveBase64() " + iFilePath1);
 
 			String iFilePath = "";
@@ -1121,7 +1121,7 @@ System.out.println("DirObj::getFiles() - " + path);
 		}
 		
 		static void moveFileToSubfolder(String filePath,
-				String iSubfolderSimpleName) throws IllegalAccessError, IOException {
+				String iSubfolderSimpleName) throws IllegalAccessError, IOException, Exception {
 			System.out.println("moveFileToSubfolder() - beginn: " + filePath);
 			Path sourceFilePath = Paths.get(filePath);
 			System.out.println("moveFileToSubfolder() - sourceFilePathh = " + sourceFilePath);
