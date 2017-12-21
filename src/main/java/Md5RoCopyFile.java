@@ -148,16 +148,29 @@ public class Md5RoCopyFile {
 // TODO: write the file path (+ md5?) to a txt file (though this shouldn't be the master. It's just in case we move the destination file later and lose our trail (e.g. from other/ to Drive_J/).
 			try {
 				Operations.copyFileToFolder(iFilePath, iDestinationDirPath);
+System.out.println("copy() - done");
 			} catch (Exception e) {
+System.out.println("copy() - exception");
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
+System.out.println("copy() - building response");
 // TODO: put this in a separate thread
-			
-			return Response.ok()
+JSONObject r = new JSONObject();
+System.out.println("copy() - created json");
+String s = r.toString();
+System.out.println("copy() - converted to string");
+Response.ResponseBuilder rr = Response.ok();
+System.out.println("copy() - rr done");
+Response.ResponseBuilder  rrr= rr
 					.header("Access-Control-Allow-Origin", "*")
-					.entity(new JSONObject().toString(4)).type("application/json")
+					.entity(s);
+System.out.println("copy() - rrr done");
+Response  rrrr = rrr
+					.type("application/json")
 					.build();
+System.out.println("copy() - rrrr done");					
+			return rrrr;
 		}
 
 		@GET
@@ -1176,7 +1189,9 @@ System.out.println("DirObj::getFiles() - " + path);
 							String md5 = org.apache.commons.codec.digest.DigestUtils.md5Hex(fis);
 							fis.close();
 				String event = md5 + "::" + destinationFilePath.toAbsolutePath() .toString() + "\n";
+System.out.println("[DEBUG] Writing to file " + Paths.get(Md5RoCopyFile.file));
 				FileUtils.writeStringToFile(Paths.get(Md5RoCopyFile.file).toFile(),event, "UTF-8", true);
+System.out.println("[DEBUG] Done");
 				System.out.println("Event reorded: " + event);
 /*						} catch (IOException e) {
 							e.printStackTrace();
