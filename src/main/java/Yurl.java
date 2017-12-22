@@ -56,6 +56,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 //import org.jvnet.hk2.annotations.Optional;
 
+
+
+
+
+
+
 import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
@@ -72,7 +78,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.Sets;
 import com.google.common.util.concurrent.SimpleTimeLimiter;
-
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.config.ClientConfig;
@@ -89,7 +94,6 @@ import com.sun.jersey.api.json.JSONConfiguration;
 // TODO: rename to YurlStash
 public class Yurl {
 
-	private static final String CHROMEDRIVER_PATH = "/home/sarnobat/github/yurl/chromedriver";
 	public static final String YOUTUBE_DOWNLOAD = "/home/sarnobat/bin/youtube_download";
 	public static final Integer ROOT_ID = 45;
 	@Deprecated
@@ -376,106 +380,9 @@ public class Yurl {
 		// Key bindings
 		// -----------------------------------------------------------------------------
 
-		private static void deleteBinding(Integer iParentId, String key, String name) {
-			try {
-				execute("START parent=node( {parentId} ) MATCH parent-[r:CONTAINS]->category WHERE has(category.key) and category.type = 'categoryNode' and category.key = {key} DELETE category.key RETURN category",
-						ImmutableMap.<String, Object> builder()
-								.put("parentId", iParentId)
-								.put("key", key).build(), "deleteBinding()");
-				System.out.println("deleteBinding() - Removed keybinding for " + name);
-			} catch (Exception e) {
-				System.out.println("deleteBinding() - Did not removed keybinding for " + name + " since there currently isn't one.");
-			}
-		}
 		
-		private static final Function<String, Map.Entry<String, String>> LINE_TO_BINDING_ENTRY = new Function<String, Map.Entry<String, String>>() {
-			@Override
-			public Entry<String, String> apply(String bindingLine) {
-				String[] aLineElements = bindingLine.split("=");
-				// Ignore trailing comments
-				return new AbstractMap.SimpleEntry<String, String>(aLineElements[0].trim(),
-						aLineElements[1].trim().split("#")[0].trim());
-			}
-		};
-
-		private static final Predicate<String> IS_COMMENTED = new Predicate<String>(){
-			@Override
-			public boolean apply(@Nullable String aNewKeyBinding) {
-				if (aNewKeyBinding == null) {
-					return true;
-				}
-				if (aNewKeyBinding.equals("")){
-					return true;
-				}
-				if (aNewKeyBinding.trim().startsWith("#")
-						&& !aNewKeyBinding.trim().startsWith("#=")) {
-					return true;
-				}
-				if (aNewKeyBinding.trim().startsWith("_")) {
-					// do not allow key binding that is "_". This is reserved
-					// for hiding until refresh
-					return true;
-				}
-				return false;
-			}
-		};
 		
-		private Set<String> difference(String iNewKeyBindings,
-				String iOldKeyBindings) {
-			// NOTE: This is not symmetric (commutative?). If you want to
-			// support removal do that in a separate loop
-			Set<String> theNewKeyBindingLines = Sets.difference(
-					ImmutableSet.copyOf(iNewKeyBindings.trim().split("\n")),
-					ImmutableSet.copyOf(iOldKeyBindings.trim().split("\n")));
-			System.out.println("Difference: " + theNewKeyBindingLines);
-			return theNewKeyBindingLines;
-		}
 
-		/** Get or create the category node that is to be associated with the key code */
-		private static String getCategoryNodeIdString(String iCategoryName,
-				String iKeyCode, JSONArray theCategoryNodes) throws IOException {
-			String theNewCategoryNodeIdString;
-			if (shouldCreateNewCategoryNode(theCategoryNodes, iCategoryName)) {
-				// TODO: first check if there is already a node with this name,
-				// which is for re-associating the keycode with the category
-				theNewCategoryNodeIdString = (String) ((JSONArray) ((JSONArray) execute(
-						"CREATE (n { name : {name} , key : {key}, created: {created} , type :{type}}) "
-								+ "RETURN id(n)",
-						ImmutableMap.<String, Object> builder()
-								.put("name", iCategoryName)
-								.put("key", iKeyCode)
-								.put("type", "categoryNode")
-								.put("created", System.currentTimeMillis())
-								.build(), "getCategoryNodeIdString()").get("data")).get(0)).get(0);
-			} else {
-				if (theCategoryNodes.length() > 0) {
-					if (theCategoryNodes.length() > 1) {
-						// Sanity check
-						throw new RuntimeException(
-								"There should never be 2 child categories of the same node with the same name");
-					}
-					theNewCategoryNodeIdString = (String) ((JSONArray) theCategoryNodes
-							.get(0)).get(0);
-				} else {
-					theNewCategoryNodeIdString = "-1";
-				}
-			}
-			return theNewCategoryNodeIdString;
-		}
-
-		private static boolean shouldCreateNewCategoryNode(JSONArray theCategoryNodes, String iCategoryName) {
-			boolean shouldCreateNewCategoryNode = false;
-			if (theCategoryNodes.length() > 0) {
-				if (theCategoryNodes.length() > 1) {
-					// Sanity check
-					throw new RuntimeException(
-							"There should never be 2 child categories of the same node with the same name");
-				}
-			} else {
-				shouldCreateNewCategoryNode = true;
-			}
-			return shouldCreateNewCategoryNode;
-		}
 
 		
 
@@ -509,7 +416,7 @@ public class Yurl {
 		}
 
 
-        private static void launchAsynchronousTasksHttpcat(final String iUrl, Integer iCategoryId) {
+        private static void launchAsynchronousTasksHttpcat(final String iUrl, Integer iCategoryId) throws IOException, InterruptedException {
 		
 			appendToTextFileSync(iUrl, iCategoryId.toString(), QUEUE_DIR, Yurl.QUEUE_FILE_TXT_2017);
 			
@@ -534,17 +441,28 @@ public class Yurl {
 							}
 							String command = "echo '" + iUrl + "::" + theTitle + "' | tee -a '" + titleFileStr + "'";
 							System.out.println("appendToTextFile() - " + command);
-							Process p = new ProcessBuilder()
-									.directory(file2)
-									.command("echo","hello world")
-									.command("/bin/sh", "-c", command)
-									.inheritIO().start();
-							p.waitFor();
-							if (p.exitValue() == 0) {
-								System.out.println("appendToTextFile() - successfully appended 2 "
-										+ iUrl);
-							} else {
-								System.out.println("appendToTextFile() - error appending " + iUrl);
+							Process p;
+							try {
+								p = new ProcessBuilder()
+										.directory(file2)
+										.command("echo","hello world")
+										.command("/bin/sh", "-c", command)
+										.inheritIO().start();
+								try {
+									p.waitFor();
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								if (p.exitValue() == 0) {
+									System.out.println("appendToTextFile() - successfully appended 2 "
+											+ iUrl);
+								} else {
+									System.out.println("appendToTextFile() - error appending " + iUrl);
+								}
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
 							}
 						}
 					};
@@ -642,18 +560,29 @@ public class Yurl {
 					}
 					String command =  "echo '" + id + "::" + iUrl + "::'`date +%s` | tee -a '" + queueFile + "'";
 					System.out.println("appendToTextFile() - " + command);
-					Process p = new ProcessBuilder()
-							.directory(file)
-							.command("echo","hello world")
-							.command("/bin/sh", "-c", command)
-									//"touch '" + queueFile + "'; echo '" + id + ":" + iUrl + "' >> '" + queueFile + "'"
-											.inheritIO().start();
-					p.waitFor();
-					if (p.exitValue() == 0) {
-						System.out.println("appendToTextFile() - successfully appended 5 "
-								+ iUrl);
-					} else {
-						System.out.println("appendToTextFile() - error appending " + iUrl);
+					Process p;
+					try {
+						p = new ProcessBuilder()
+								.directory(file)
+								.command("echo","hello world")
+								.command("/bin/sh", "-c", command)
+										//"touch '" + queueFile + "'; echo '" + id + ":" + iUrl + "' >> '" + queueFile + "'"
+												.inheritIO().start();
+						try {
+							p.waitFor();
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						if (p.exitValue() == 0) {
+							System.out.println("appendToTextFile() - successfully appended 5 "
+									+ iUrl);
+						} else {
+							System.out.println("appendToTextFile() - error appending " + iUrl);
+						}
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 				}
 			};
@@ -876,8 +805,8 @@ public class Yurl {
 
 			private static void downloadVideo(String iVideoUrl, String targetDirPath, String id) {
 				try {
-					downloadVideo(iVideoUrl, targetDirPath);
-					writeSuccessToDb(iVideoUrl, id);
+//					downloadVideo(iVideoUrl, targetDirPath);
+//					writeSuccessToDb(iVideoUrl, id);
 				} catch (JSONException e) {
 					System.out.println("UndownloadedVideosBatchJob.downloadVideo() - ERROR recording download in database");
 				} catch (Exception e) {
@@ -940,7 +869,7 @@ public class Yurl {
 		@Produces("application/json")
 		public Response removeImage(
 				@QueryParam("id") Integer nodeIdToChange,
-				@QueryParam("parentId") Integer parentId) throws IOException, JSONException {
+				@QueryParam("parentId") Integer parentId) throws Exception {
 	
 			System.out.println("removeImage() - begin");
 			try {
@@ -1044,6 +973,7 @@ public class Yurl {
 		/**
 		 * This MOVES a node to a new subcategory. It deletes the relationship
 		 * with the existing parent
+		 * @throws InterruptedException 
 		 */
 		@GET
 		@Path("relate")
@@ -1052,7 +982,7 @@ public class Yurl {
 				@QueryParam("url") String iUrl,
 				@QueryParam("currentParentId") final Integer iCurrentParentId,
 				@QueryParam("created") Long created)
-				throws JSONException, IOException {
+				throws JSONException, IOException, InterruptedException {
 			
 			System.out.println("Yurl.YurlResource.move() begin");
 			
@@ -1197,8 +1127,6 @@ public class Yurl {
 					try {
 						//categoriesTreeCache = ReadCategoryTree.getCategoriesTree(Yurl.ROOT_ID);
 					} catch (JSONException e) {
-						e.printStackTrace();
-					} catch (IOException e) {
 						e.printStackTrace();
 					}
 				}
@@ -1389,8 +1317,8 @@ public class Yurl {
 
 
 		// I hope this is the same as JSONObject.Null (not capitals)
-		//@Deprecated // Does not compile in Eclipse, but does compile in groovy
-		//public static final Object JSON_OBJECT_NULL = JSONObject.Null;//new Null()
+		@Deprecated // Does not compile in Eclipse, but does compile in groovy
+		public static final Object JSON_OBJECT_NULL = JSONObject.NULL;//new Null()
 	}
 
 	@SuppressWarnings("unused")
