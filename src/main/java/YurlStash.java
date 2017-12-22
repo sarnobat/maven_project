@@ -92,7 +92,7 @@ import com.sun.jersey.api.json.JSONConfiguration;
  * Only writing to the persistent store (and the associated async tasks) should remain in this thread.
  */
 // TODO: rename to YurlStash
-public class Yurl {
+public class YurlStash {
 
 	public static final String YOUTUBE_DOWNLOAD = "/home/sarnobat/bin/youtube_download";
 	public static final Integer ROOT_ID = 45;
@@ -125,7 +125,7 @@ public class Yurl {
 
 		// This only gets invoked when it receives the first request
 		// Multiple instances get created
-		YurlResource() {
+		public YurlResource() {
 			// We can't put the auto downloader in main()
 			// then either it will be called every time the cron job is executed,
 			// or not until the server terminates unexceptionally (which never happens).
@@ -265,7 +265,7 @@ public class Yurl {
 		private JSONObject getItemsAtLevelAndChildLevels(Integer iRootId) throws JSONException, IOException {
 //			System.out.println("getItemsAtLevelAndChildLevels() - " + iRootId);
 			if (categoriesTreeCache == null) {
-				categoriesTreeCache = ReadCategoryTree.getCategoriesTree(Yurl.ROOT_ID);
+				categoriesTreeCache = ReadCategoryTree.getCategoriesTree(YurlStash.ROOT_ID);
 			}
 			// TODO: the source is null clause should be obsoleted
 			JSONObject theQueryResultJson = execute(
@@ -401,7 +401,7 @@ public class Yurl {
 			System.out.println("stash() theHttpUrl = " + theHttpUrl);
 			try {
 				// TODO: append synchronously to new yurl master queue 
-	            appendToTextFileSync(iUrl, iCategoryId.toString(), QUEUE_FILE, Yurl.QUEUE_FILE_TXT_MASTER);
+	            appendToTextFileSync(iUrl, iCategoryId.toString(), QUEUE_FILE, YurlStash.QUEUE_FILE_TXT_MASTER);
 
 				launchAsynchronousTasksHttpcat(theHttpUrl, iCategoryId);
 				// TODO: check that it returned successfully (redundant?)
@@ -418,7 +418,7 @@ public class Yurl {
 
         private static void launchAsynchronousTasksHttpcat(final String iUrl, Integer iCategoryId) throws IOException, InterruptedException {
 		
-			appendToTextFileSync(iUrl, iCategoryId.toString(), QUEUE_DIR, Yurl.QUEUE_FILE_TXT_2017);
+			appendToTextFileSync(iUrl, iCategoryId.toString(), QUEUE_DIR, YurlStash.QUEUE_FILE_TXT_2017);
 			
 			// Delete the url cache file for this category. It will get
 			// regenrated next time we load that category page.
@@ -433,9 +433,9 @@ public class Yurl {
 					Runnable r = new Runnable() {
 						// @Override
 						public void run() {
-							String titleFileStr = Yurl.QUEUE_FILE + "/" + Yurl.TITLE_FILE_TXT;
+							String titleFileStr = YurlStash.QUEUE_FILE + "/" + YurlStash.TITLE_FILE_TXT;
 							File file = Paths.get(titleFileStr).toFile();
-							File file2 = Paths.get(Yurl.QUEUE_FILE).toFile();
+							File file2 = Paths.get(YurlStash.QUEUE_FILE).toFile();
 							if (!file2.exists()) {
 								throw new RuntimeException("Non-existent: " + file.getAbsolutePath());
 							}
@@ -553,7 +553,7 @@ public class Yurl {
 			Runnable r = new Runnable() {
 				// @Override
 				public void run() {
-					String queueFile = dir + "/" + Yurl.QUEUE_FILE_TXT;
+					String queueFile = dir + "/" + YurlStash.QUEUE_FILE_TXT;
 					File file = Paths.get(dir).toFile();
 					if (!file.exists()) {
 						throw new RuntimeException("Non-existent: " + file.getAbsolutePath());
@@ -698,7 +698,7 @@ public class Yurl {
                                                         Process p = new ProcessBuilder()
                                                                         .directory(Paths.get(targetDirPath).toFile())
                                                                         .command(
-                                                                                        ImmutableList.of(Yurl.YOUTUBE_DOWNLOAD,
+                                                                                        ImmutableList.of(YurlStash.YOUTUBE_DOWNLOAD,
                                                                                                         iVideoUrl)).inheritIO().start();
                                                         p.waitFor();
                                                         if (p.exitValue() == 0) {
@@ -986,10 +986,10 @@ public class Yurl {
 			
 			System.out.println("Yurl.YurlResource.move() begin");
 			
-			appendToTextFileSync(iUrl, iNewParentId.toString(), QUEUE_FILE, Yurl.QUEUE_FILE_TXT_MASTER, created);
+			appendToTextFileSync(iUrl, iNewParentId.toString(), QUEUE_FILE, YurlStash.QUEUE_FILE_TXT_MASTER, created);
 			
 			System.out.println("Yurl.YurlResource.move() 2");
-			appendToTextFileSync(iUrl, "-" + iCurrentParentId.toString(), QUEUE_DIR, Yurl.QUEUE_FILE_TXT_DELETE, created);
+			appendToTextFileSync(iUrl, "-" + iCurrentParentId.toString(), QUEUE_DIR, YurlStash.QUEUE_FILE_TXT_DELETE, created);
 			System.out.println("Yurl.YurlResource.move() 4");
 			
 			new Thread() {
@@ -1103,12 +1103,12 @@ public class Yurl {
 				throws JSONException, IOException {
 			JSONObject ret = new JSONObject();
 			JSONObject categoriesTreeJson;
-			java.nio.file.Path path = Paths.get("/home/sarnobat/github/.cache/" + Yurl.ROOT_ID + ".json");
+			java.nio.file.Path path = Paths.get("/home/sarnobat/github/.cache/" + YurlStash.ROOT_ID + ".json");
 			if (Files.exists(path)) {
 				categoriesTreeJson = new JSONObject(FileUtils.readFileToString(path.toFile(), "UTF-8"));
 			} else {
 				if (categoriesTreeCache == null) {
-					categoriesTreeJson = ReadCategoryTree.getCategoriesTree(Yurl.ROOT_ID);
+					categoriesTreeJson = ReadCategoryTree.getCategoriesTree(YurlStash.ROOT_ID);
 				} else {
 					categoriesTreeJson = categoriesTreeCache;
 					refreshCategoriesTreeCacheInSeparateThread();
