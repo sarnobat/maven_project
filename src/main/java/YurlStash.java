@@ -1363,7 +1363,7 @@ public class YurlStash {
 		try {
 			JdkHttpServerFactory.createHttpServer(
 					new URI("http://localhost:" + port + "/"), new ResourceConfig(
-							YurlResource.class));
+							YurlStash.YurlResource.class));
 			// Do not allow this in multiple processes otherwise your hard disk will fill up
 			// or overload the database
 			// Problem - this won't get executed until the server ends
