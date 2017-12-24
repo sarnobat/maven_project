@@ -1210,21 +1210,25 @@ System.out.println("[DEBUG] Done");
 				String iDestinationDirPath) throws IllegalAccessError, IOException {
 			System.out.println("copyFileToFolder() - begin " + filePath);
 			Path sourceFilePath = Paths.get(filePath);
+                        System.out.println("copyFileToFolder() - checking if exists: " + filePath);
 			if (!Files.exists(sourceFilePath)) {
 				throw new RuntimeException("No such source file: " + filePath);
 			}
+                        System.out.println("copyFileToFolder() - source file does exist, good.");
 			String string = sourceFilePath.getFileName().toString();
 			Path destinationDir = Paths.get(iDestinationDirPath);
 			doCopy(sourceFilePath, getUnconflictedDestinationFilePath(destinationDir, string));
 		}
 
 		private static Path getUnconflictedDestinationFilePath (Path destinationDir, String sourceFileSimpleName) {
+System.out.println("getUnconflictedDestinationFilePath() - begin");
 			Path rDestinationFile = allocateFile(destinationDir, sourceFileSimpleName);
 			return rDestinationFile;
 		}
 		
 		private static Path allocateFile(Path folder, String fileSimpleName)
 				throws IllegalAccessError {
+System.out.println("allocateFile() - begin");
 			// if destination file exists, rename the file to be moved(while
 			// loop)
 			return Operations.determineDestinationPathAvoidingExisting(folder
