@@ -376,6 +376,7 @@ public class YurlStash {
 				launchAsynchronousTasksHttpcat(theHttpUrl, iCategoryId);
 				// TODO: check that it returned successfully (redundant?)
 //				System.out.println("stash() - node created: " + nodeId);
+				System.out.println("YurlStash.YurlResource.stash() sending empty json response. This should work.");
 				return Response.ok().header("Access-Control-Allow-Origin", "*")
 						.entity(new JSONObject().toString())
 						.type("application/json").build();
