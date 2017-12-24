@@ -50,23 +50,24 @@ public class HelloWorldServer2017 {
 				.fromUri("http://localhost").port(9099).build(),
 				new ResourceConfig(HelloWorldResource.class), false);
 
-//		ContextHandler contextHandler = new ContextHandler("/json");
-//		contextHandler.setHandler(server.getHandler());
-		
-		System.out.println("HelloWorldServer2017.main() server.getHandler() = " + server.getHandler());
+		// ContextHandler contextHandler = new ContextHandler("/json");
+		// contextHandler.setHandler(server.getHandler());
+
+		System.out.println("HelloWorldServer2017.main() server.getHandler() = "
+				+ server.getHandler());
 
 		// ResourceHandler resourceHandler = new ResourceHandler();
 		// resourceHandler.setWelcomeFiles(new String[] { "index.html" });
 		// resourceHandler.setResourceBase(location.toExternalForm());
 		System.out.println(HelloWorldServer2017.class.getProtectionDomain()
 				.getCodeSource().getLocation().toExternalForm());
-//		HandlerCollection handlerCollection = new HandlerCollection();
-//		handlerCollection.setHandlers(new Handler[] {
-//		// resourceHandler,
-//		contextHandler
-//		// , new DefaultHandler()
-//				});
-//		server.setHandler(handlerCollection);
+		// HandlerCollection handlerCollection = new HandlerCollection();
+		// handlerCollection.setHandlers(new Handler[] {
+		// // resourceHandler,
+		// contextHandler
+		// // , new DefaultHandler()
+		// });
+		// server.setHandler(handlerCollection);
 		server.start();
 		server.join();
 	}
