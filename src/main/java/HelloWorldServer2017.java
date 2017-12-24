@@ -15,8 +15,7 @@ public class HelloWorldServer2017 {
 	private HelloWorldServer2017() {
 	}
 
-	// @Path("helloworld")
-	@Path("/")
+	@Path("helloworld")
 	public static class HelloWorldResource { // Must be public
 
 		@GET
@@ -25,11 +24,8 @@ public class HelloWorldServer2017 {
 		public Response json(
 		// TODO: @QueryParam("rootId") Integer iRootId
 		) throws JSONException {
-			System.out.println("1");
 			JSONObject json = new JSONObject();
-			System.out.println("2");
 			json.put("foo", "bar");
-			System.out.println("3");
 			return Response.ok().header("Access-Control-Allow-Origin", "*")
 					.entity(json.toString()).type("application/json").build();
 		}
@@ -41,24 +37,6 @@ public class HelloWorldServer2017 {
 				.fromUri("http://localhost").port(9099).build(),
 				new ResourceConfig(HelloWorldResource.class), false);
 
-		// ContextHandler contextHandler = new ContextHandler("/json");
-		// contextHandler.setHandler(server.getHandler());
-
-		System.out.println("HelloWorldServer2017.main() server.getHandler() = "
-				+ server.getHandler());
-
-		// ResourceHandler resourceHandler = new ResourceHandler();
-		// resourceHandler.setWelcomeFiles(new String[] { "index.html" });
-		// resourceHandler.setResourceBase(location.toExternalForm());
-		System.out.println(HelloWorldServer2017.class.getProtectionDomain()
-				.getCodeSource().getLocation().toExternalForm());
-		// HandlerCollection handlerCollection = new HandlerCollection();
-		// handlerCollection.setHandlers(new Handler[] {
-		// // resourceHandler,
-		// contextHandler
-		// // , new DefaultHandler()
-		// });
-		// server.setHandler(handlerCollection);
 		server.start();
 		server.join();
 	}
