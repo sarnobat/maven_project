@@ -25,8 +25,10 @@ import com.google.common.io.Files;
 
 public class Md5RoList {
 
-	private static final String QUEUE_DIR = System.getProperty("user.home") + "/sarnobat.git/db/md5ro/";
-	private static final String QUEUE_FILE_TXT_DELETE = QUEUE_DIR + "/md5_files.txt";
+	private static final String QUEUE_DIR = System.getProperty("user.home")
+			+ "/sarnobat.git/db/md5ro/";
+	private static final String QUEUE_FILE_TXT_DELETE = QUEUE_DIR
+			+ "/md5_files.txt";
 
 	// This only gets invoked when it receives the first request
 	// Multiple instances get created
@@ -38,19 +40,18 @@ public class Md5RoList {
 		@Produces("application/json")
 		public Response getUrls(@QueryParam("rootId") Integer iRootId)
 				throws JSONException, IOException {
-				
+
 			System.out.println("getUrls() " + QUEUE_FILE_TXT_DELETE);
 			checkNotNull(iRootId);
 
 			try {
-			System.out.println("getUrls() reading file");
-			java.io.File f = Paths.get(QUEUE_FILE_TXT_DELETE).toFile();
-			System.out.println("getUrls() exists? " + f.exists());
-			String e = FileUtils.readFileToString(f, "UTF-8");
-			System.out.println("getUrls() about to send response: " + e );
+				System.out.println("getUrls() reading file");
+				java.io.File f = Paths.get(QUEUE_FILE_TXT_DELETE).toFile();
+				System.out.println("getUrls() exists? " + f.exists());
+				String e = FileUtils.readFileToString(f, "UTF-8");
+				System.out.println("getUrls() about to send response: " + e);
 				return Response.ok().header("Access-Control-Allow-Origin", "*")
-						.entity(e).type("text/plain")
-						.build();
+						.entity(e).type("text/plain").build();
 			} catch (Exception e) {
 				System.out.println("getUrls() exception");
 				e.printStackTrace();
@@ -61,14 +62,16 @@ public class Md5RoList {
 			}
 		}
 
-
-    @GET
-    @javax.ws.rs.Path("/health")
-    @Produces("application/json")
-    public Response health() {
-      Response r = Response.ok().header("Access-Control-Allow-Origin", "*").type("application/json").entity(new JSONObject().toString()).build();
-      return r;
-    }
+		@GET
+		@javax.ws.rs.Path("/health")
+		@Produces("application/json")
+		public Response health() {
+			Response r = Response.ok()
+					.header("Access-Control-Allow-Origin", "*")
+					.type("application/json")
+					.entity(new JSONObject().toString()).build();
+			return r;
+		}
 
 	}
 
@@ -82,13 +85,12 @@ public class Md5RoList {
 			List lines = Files
 					.readLines(Paths.get(QUEUE_FILE_TXT_DELETE).toFile(),
 							Charset.defaultCharset()).stream()
-							.filter(t -> t.contains("2016"))
-//									new Predicate<String> (){
-//								public boolean test(String t) {
-//									return t.contains("2016");
-//								}})
-							.limit(6)
-							.collect(Collectors.toList());
+					.filter(t -> t.contains("2016"))
+					// new Predicate<String> (){
+					// public boolean test(String t) {
+					// return t.contains("2016");
+					// }})
+					.limit(6).collect(Collectors.toList());
 			System.out.println("Md5RoList.main() " + lines);
 			JdkHttpServerFactory.createHttpServer(new URI(
 					"http://localhost:4485/"), new ResourceConfig(
