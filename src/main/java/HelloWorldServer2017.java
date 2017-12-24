@@ -1,19 +1,10 @@
-import java.net.URI;
-import java.net.URL;
-import java.security.ProtectionDomain;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
-import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.ContextHandler;
-import org.eclipse.jetty.server.handler.DefaultHandler;
-import org.eclipse.jetty.server.handler.HandlerCollection;
-import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.json.JSONException;
@@ -29,7 +20,7 @@ public class HelloWorldServer2017 {
 	public static class HelloWorldResource { // Must be public
 
 		@GET
-		// @Path("json")
+		@Path("json")
 		@Produces("application/json")
 		public Response json(
 		// TODO: @QueryParam("rootId") Integer iRootId
