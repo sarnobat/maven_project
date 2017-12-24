@@ -16,26 +16,17 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
 public class HelloWorldSunServer implements HttpHandler {
-	public Map<String, String> getQueryMap(String query) {
-		Pattern pattern = Pattern.compile("/\\?.*");
-
-		Matcher matcher = pattern.matcher(query);
-		String[] params = query.split("&");
-		Map<String, String> map = new HashMap<String, String>();
-		for (String param : params) {
-			String name = param.split("=")[0];
-			String value = param.split("=")[1];
-			map.put(name, value);
-		}
-		return map;
-	}
 
 	public void handle(HttpExchange t) throws IOException {
-		System.out.println("HelloWorldSunServer.handle() ");
+		System.out.println("HelloWorldSunServer.handle() 1");
 		JSONObject json = new JSONObject();
+		System.out.println("HelloWorldSunServer.handle() 2");
 		String query = t.getRequestURI().toString();
+		System.out.println("HelloWorldSunServer.handle() 3");
 		Map<String, String> map = getQueryMap(query);
+		System.out.println("HelloWorldSunServer.handle() 4");
 		String value = map.get("param1");
+		System.out.println("HelloWorldSunServer.handle() 5");
 		json.put("myKey", value);
 		System.out.println("Request headers: " + t.getRequestHeaders());
 		System.out.println("Request URI " + t.getRequestURI());
@@ -47,6 +38,31 @@ public class HelloWorldSunServer implements HttpHandler {
 		OutputStream os = t.getResponseBody();
 		os.write(json.toString().getBytes());
 		os.close();
+	}
+
+	private Map<String, String> getQueryMap(String query) {
+		try {
+			Pattern pattern = Pattern.compile("/\\?.*");
+
+			Matcher matcher = pattern.matcher(query);
+			String[] params = query.split("&");
+			Map<String, String> map = new HashMap<String, String>();
+			for (String param : params) {
+				String[] tokens = param.split("=");
+				String name = tokens[0];
+				String value;
+				if (tokens.length > 1) {
+					value = tokens[1];
+				} else {
+					value = "unspecified";
+				}
+				map.put(name, value);
+			}
+			return map;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
 	}
 
 	public static void main(String[] args) throws IOException {
