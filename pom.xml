@@ -1,7 +1,9 @@
-
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<artifactId>maven_project</artifactId>
+	<groupId>rohidekar</groupId>
+	<version>0.0.1-SNAPSHOT</version>
 	<modelVersion>4.0.0</modelVersion>
 
 	<build>
@@ -38,6 +40,15 @@
 
 	<dependencies>
 
+
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.aggregate/jetty-all-server -->
+		<!-- <dependency> <groupId>org.eclipse.jetty.aggregate</groupId> <artifactId>jetty-all-server</artifactId> 
+			<version>8.1.16.v20140903</version> <scope>test</scope> </dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.aggregate/jetty-server -->
+		<!-- <dependency> <groupId>org.eclipse.jetty.aggregate</groupId> <artifactId>jetty-server</artifactId> 
+			<version>8.2.0.v20160908</version> <scope>test</scope> </dependency> -->
+
 		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
 		<dependency>
 			<groupId>com.amazonaws</groupId>
@@ -46,56 +57,43 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.apache.mahout</groupId>
-			<artifactId>mahout-core</artifactId>
-			<version>0.9</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-websocket</artifactId>
-			<version>7.6.19.v20160209</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.apache.mahout</groupId> <artifactId>mahout-core</artifactId> 
+			<version>0.9</version> </dependency> -->
+		<!-- <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-websocket</artifactId> 
+			<version>7.6.19.v20160209</version> </dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
+		<!-- <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-server</artifactId> 
+			<version>8.2.0.v20160908</version> </dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util -->
+		<!-- <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-util</artifactId> 
+			<version>9.4.8.v20171121</version> </dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-jdk-http -->
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-server</artifactId>
-			<version>8.2.0.v20160908</version>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-jdk-http</artifactId>
+			<version>2.25</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client -->
 		<dependency>
-			<groupId>com.google.oauth-client</groupId>
-			<artifactId>google-oauth-client</artifactId>
-			<version>1.20.0</version>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-jetty-http</artifactId>
+			<version>2.25</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-java6 -->
-		<dependency>
-			<groupId>com.google.oauth-client</groupId>
-			<artifactId>google-oauth-client-java6</artifactId>
-			<version>1.19.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty -->
-		<dependency>
-			<groupId>com.google.oauth-client</groupId>
-			<artifactId>google-oauth-client-jetty</artifactId>
-			<version>1.19.0</version>
-		</dependency>
-
+		<!-- <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-server</artifactId> 
+			<version>9.4.8.v20171121</version> </dependency> -->
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
 			<version>2.10.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-server</artifactId>
-			<version>2.0</version>
+			<version>2.25</version>
 		</dependency>
+
+
+		<!-- <dependency> <groupId>org.glassfish.jersey.core</groupId> <artifactId>jersey-server</artifactId> 
+			<version>2.0</version> </dependency> -->
 		<!-- <dependency> <groupId>fuse-jna</groupId> <artifactId>fuse-jna</artifactId> 
 			<version>0.0.1-SNAPSHOT</version> </dependency> -->
 		<dependency>
@@ -115,11 +113,8 @@
 			<artifactId>selenium-chrome-driver</artifactId>
 			<version>2.45.0</version>
 		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-htmlunit-driver</artifactId>
-			<version>2.45.0</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.seleniumhq.selenium</groupId> <artifactId>selenium-htmlunit-driver</artifactId> 
+			<version>2.45.0</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -148,11 +143,8 @@
 		</dependency>
 		<!-- <dependency> <groupId>com.pastdev</groupId> <artifactId>jsch-nio</artifactId> 
 			<version>0.1.5</version> </dependency> -->
-		<dependency>
-			<groupId>org.apache.accumulo</groupId>
-			<artifactId>accumulo-examples-simple</artifactId>
-			<version>1.7.0</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.apache.accumulo</groupId> <artifactId>accumulo-examples-simple</artifactId> 
+			<version>1.7.0</version> </dependency> -->
 		<dependency>
 			<groupId>org.bytedeco</groupId>
 			<artifactId>javacv</artifactId>
@@ -222,11 +214,8 @@
 		<!-- <dependency> <groupId>org.json</groupId> <artifactId>json</artifactId> 
 			<version>20131018</version> </dependency> -->
 
-		<dependency>
-			<groupId>com.google.apis</groupId>
-			<artifactId>google-api-services-calendar</artifactId>
-			<version>v3-rev72-1.17.0-rc</version>
-		</dependency>
+		<!-- <dependency> <groupId>com.google.apis</groupId> <artifactId>google-api-services-calendar</artifactId> 
+			<version>v3-rev72-1.17.0-rc</version> </dependency> -->
 		<!-- <dependency> <groupId>com.google.http-client</groupId> <artifactId>google-http-client-jackson2</artifactId> 
 			<version>${project.http.version}</version> </dependency> -->
 		<!-- <dependency> <groupId>com.google.oauth-client</groupId> <artifactId>google-oauth-client-jetty</artifactId> 
@@ -271,33 +260,31 @@
 			<artifactId>jsr311-api</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-jdk-http</artifactId>
-			<version>2.0</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.glassfish.jersey.containers</groupId> <artifactId>jersey-container-jdk-http</artifactId> 
+			<version>2.0</version> </dependency> -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
 		<dependency>
-			<groupId>com.sun.jersey</groupId>
+			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-client</artifactId>
-			<version>1.17.1</version>
+			<version>2.26</version>
 		</dependency>
+
+		<!-- <dependency> <groupId>com.sun.jersey</groupId> <artifactId>jersey-client</artifactId> 
+			<version>1.17.1</version> </dependency> -->
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>2.4</version>
 		</dependency>
 
-		<dependency>
-			<groupId>net.sourceforge.htmlunit</groupId>
-			<artifactId>htmlunit</artifactId>
-			<version>2.11</version>
-		</dependency>
+		<!-- <dependency> <groupId>net.sourceforge.htmlunit</groupId> <artifactId>htmlunit</artifactId> 
+			<version>2.11</version> </dependency> -->
 		<dependency>
 			<groupId>com.ui4j</groupId>
 			<artifactId>ui4j-all</artifactId>
@@ -327,11 +314,8 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.7.2</version>
 		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-			<version>1.17.1</version>
-		</dependency>
+		<!-- <dependency> <groupId>com.sun.jersey</groupId> <artifactId>jersey-json</artifactId> 
+			<version>1.17.1</version> </dependency> -->
 
 		<!-- <dependency> <groupId>com.github.axet</groupId> <artifactId>vget</artifactId> 
 			<version>1.1.5</version> </dependency> -->
@@ -385,11 +369,6 @@
 			<version>20171018</version>
 		</dependency>
 
-
 	</dependencies>
 
-
-	<artifactId>maven_project</artifactId>
-	<groupId>rohidekar</groupId>
-	<version>0.0.1-SNAPSHOT</version>
 </project>

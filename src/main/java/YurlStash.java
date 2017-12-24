@@ -3,22 +3,17 @@ import static com.google.common.base.Preconditions.checkState;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.AbstractMap;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -26,14 +21,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.commons.cli.CommandLine;
@@ -44,45 +36,23 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-//import org.jvnet.hk2.annotations.Optional;
-
-
-
-
-
-
 
 import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
-import com.google.common.base.Strings;
-import com.google.common.collect.FluentIterable;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Ordering;
-import com.google.common.collect.Sets;
 import com.google.common.util.concurrent.SimpleTimeLimiter;
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
-import com.sun.jersey.api.json.JSONConfiguration;
+//import org.jvnet.hk2.annotations.Optional;
 
 /**
  * Deprecation doesn't mean the method can be removed. Only when index.html stops referring to it can it be removed.
@@ -1050,45 +1020,7 @@ public class YurlStash {
 		// TODO: make this map immutable
 		static JSONObject execute(String iCypherQuery,
 				Map<String, Object> iParams, boolean doLogging, String... iCommentPrefix) {
-			String commentPrefix = iCommentPrefix.length > 0 ? iCommentPrefix[0] + " " : "";
-			if (doLogging) {
-				System.out.println(commentPrefix + " - \t" + iCypherQuery);
-				System.out.println(commentPrefix + "- \tparams - " + iParams);
-			}
-			ClientConfig clientConfig = new DefaultClientConfig();
-			clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING,
-					Boolean.TRUE);
-	
-			// POST {} to the node entry point URI
-			ClientResponse theResponse = Client.create(clientConfig).resource(
-					CYPHER_URI)
-					.accept(MediaType.APPLICATION_JSON)
-					.type(MediaType.APPLICATION_JSON).entity("{ }")
-					.post(ClientResponse.class, ImmutableMap
-							.<String, Object> of("query", iCypherQuery, "params",
-									Preconditions.checkNotNull(iParams)));
-			if (theResponse.getStatus() != 200) {
-				System.out.println(commentPrefix + "FAILED:\n\t" + iCypherQuery + "\n\tparams: " + iParams);
-				try {
-					throw new RuntimeException(IOUtils.toString(theResponse.getEntityInputStream(), "UTF-8"));
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-				}
-			}
-			String theNeo4jResponse ;
-			try {
-				// Do not inline this. We need to close the stream after
-				// copying
-				theNeo4jResponse = IOUtils.toString(theResponse.getEntityInputStream(), "UTF-8");
-				theResponse.getEntityInputStream().close();
-				theResponse.close();
-				if (doLogging) {
-					System.out.println(commentPrefix + "end");
-				}
-				return new JSONObject(theNeo4jResponse);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
+			throw new RuntimeException("Do not use this method");
 		}
 
 		// ----------------------------------------------------------------------------
