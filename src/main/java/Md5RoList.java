@@ -82,10 +82,11 @@ public class Md5RoList {
 			List lines = Files
 					.readLines(Paths.get(QUEUE_FILE_TXT_DELETE).toFile(),
 							Charset.defaultCharset()).stream()
-							.filter(new Predicate<String> (){
-								public boolean test(String t) {
-									return t.contains("2016");
-								}})
+							.filter(t -> t.contains("2016"))
+//									new Predicate<String> (){
+//								public boolean test(String t) {
+//									return t.contains("2016");
+//								}})
 							.limit(6)
 							.collect(Collectors.toList());
 			System.out.println("Md5RoList.main() " + lines);
