@@ -1201,6 +1201,7 @@ System.out.println("[DEBUG] Done");
 				}.start();*/
 			
 			} catch (IOException e) {
+				System.out.println("Copying failed: " + e.getMessage());
 				e.printStackTrace();
 				throw new IllegalAccessError("Copying did not work");
 			}
