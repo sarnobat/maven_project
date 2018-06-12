@@ -1,0 +1,5 @@
+JvmtiExport can_access_local_variables 0
+JvmtiExport can_hotswap_or_post_breakpoint 0
+JvmtiExport can_post_on_exceptions 0
+# 627 ciObject found
+ciMethodData sun/reflect/generics/reflectiveObjects/WildcardTypeImpl getUpperBounds ()[Ljava/lang/reflect/Type; 1 336 orig 204 140 79 248 182 80 19 168 98 176 1 0 0 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 65 0 0 0 33 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 1 0 9 0 2 0 0 0 196 0 0 0 255 255 255 255 7 0 4 0 data 49 0x40007 0x4 0x94 0x4 0x80002 0x4 0x170007 0x4 0x7c 0x4 0x1b0005 0x0 0x61b107c0 0x4 0x0 0x0 0x250005 0x0 0x663b85f8 0x4 0x0 0x0 0x2e0005 0x0 0x6297d0b8 0x4 0x0 0x0 0x310004 0x0 0xb622f3c0 0x4 0x0 0x0 0x350003 0x4 0xffffff90 0x410005 0x0 0x5f90cc50 0x8 0x0 0x0 0x440004 0x0 0x5f90cc50 0x8 0x0 0x0 oops 6

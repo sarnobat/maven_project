@@ -1,0 +1,645 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 131072 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2643), pid=31009, tid=0xb6459b40
+#
+# JRE version: OpenJDK Runtime Environment (8.0_151-b12) (build 1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12)
+# Java VM: OpenJDK Server VM (25.151-b12 mixed mode linux-x86 )
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb6307800):  JavaThread "main" [_thread_in_vm, id=31091, stack(0xb6409000,0xb645a000)]
+
+Stack: [0xb6409000,0xb645a000],  sp=0xb6456b60,  free space=310k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x8d6834]
+V  [libjvm.so+0x3a7c76]
+V  [libjvm.so+0x7420c0]
+V  [libjvm.so+0x73c013]
+V  [libjvm.so+0x8d3264]
+V  [libjvm.so+0x6cdd63]
+V  [libjvm.so+0x6cdf7a]
+V  [libjvm.so+0x6ceb05]
+V  [libjvm.so+0x6cec5a]
+V  [libjvm.so+0x6cfc9a]
+V  [libjvm.so+0x6cfe8d]
+V  [libjvm.so+0x3a522b]
+V  [libjvm.so+0x3186e0]
+V  [libjvm.so+0x319c32]
+V  [libjvm.so+0x84d519]
+V  [libjvm.so+0x55c01a]
+V  [libjvm.so+0x55d4bc]  JVM_DefineClassWithSource+0x9c
+C  [libjava.so+0xb357]  Java_java_lang_ClassLoader_defineClass1+0x1a7
+j  java.lang.ClassLoader.defineClass1(Ljava/lang/String;[BIILjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;+27
+j  java.security.SecureClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;+12
+j  java.net.URLClassLoader.defineClass(Ljava/lang/String;Lsun/misc/Resource;)Ljava/lang/Class;+138
+j  java.net.URLClassLoader.access$100(Ljava/net/URLClassLoader;Ljava/lang/String;Lsun/misc/Resource;)Ljava/lang/Class;+3
+j  java.net.URLClassLoader$1.run()Ljava/lang/Class;+43
+j  java.net.URLClassLoader$1.run()Ljava/lang/Object;+1
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51ebea]
+V  [libjvm.so+0x56b9c4]  JVM_DoPrivileged+0x434
+C  [libjava.so+0x9e15]  Java_java_security_AccessController_doPrivileged__Ljava_security_PrivilegedExceptionAction_2Ljava_security_AccessControlContext_2+0x25
+J 144  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; (0 bytes) @ 0xa735a74c [0xa735a6a0+0xac]
+j  java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class;+13
+j  org.codehaus.plexus.classworlds.realm.ClassRealm.loadClassFromSelf(Ljava/lang/String;)Ljava/lang/Class;+20
+j  org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(Ljava/lang/String;)Ljava/lang/Class;+18
+j  org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(Ljava/lang/String;Z)Ljava/lang/Class;+13
+j  org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+9
+j  org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51d586]
+V  [libjvm.so+0x51dafb]
+V  [libjvm.so+0x853e83]
+V  [libjvm.so+0x8528ff]
+V  [libjvm.so+0x854906]
+V  [libjvm.so+0x39b0be]
+V  [libjvm.so+0x39d3a4]
+V  [libjvm.so+0x6310ee]
+V  [libjvm.so+0x633a38]
+V  [libjvm.so+0x513af7]
+j  org.apache.maven.cli.MavenCli.container(Lorg/apache/maven/cli/CliRequest;)Lorg/codehaus/plexus/PlexusContainer;+68
+j  org.apache.maven.cli.MavenCli.doMain(Lorg/apache/maven/cli/CliRequest;)I+29
+j  org.apache.maven.cli.MavenCli.main([Ljava/lang/String;Lorg/codehaus/plexus/classworlds/ClassWorld;)I+18
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51ebea]
+V  [libjvm.so+0x7b8d25]
+V  [libjvm.so+0x7baa5e]
+V  [libjvm.so+0x565ade]  JVM_InvokeMethod+0x10e
+C  [libjava.so+0xcf53]  Java_sun_reflect_NativeMethodAccessorImpl_invoke0+0x23
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+100
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+56
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced([Ljava/lang/String;)V+45
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launch([Ljava/lang/String;)V+2
+j  org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode([Ljava/lang/String;)I+101
+j  org.codehaus.plexus.classworlds.launcher.Launcher.main([Ljava/lang/String;)V+1
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51ebea]
+V  [libjvm.so+0x53eaf4]
+V  [libjvm.so+0x540abb]
+C  [libjli.so+0x2c30]
+C  [libjli.so+0x69fe]
+C  [libpthread.so.0+0x6295]  start_thread+0xe5
+C  [libc.so.6+0xe70ae]  clone+0x6e
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.ClassLoader.defineClass1(Ljava/lang/String;[BIILjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;+27
+j  java.security.SecureClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;+12
+j  java.net.URLClassLoader.defineClass(Ljava/lang/String;Lsun/misc/Resource;)Ljava/lang/Class;+138
+j  java.net.URLClassLoader.access$100(Ljava/net/URLClassLoader;Ljava/lang/String;Lsun/misc/Resource;)Ljava/lang/Class;+3
+j  java.net.URLClassLoader$1.run()Ljava/lang/Class;+43
+j  java.net.URLClassLoader$1.run()Ljava/lang/Object;+1
+v  ~StubRoutines::call_stub
+J 144  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; (0 bytes) @ 0xa735a708 [0xa735a6a0+0x68]
+j  java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class;+13
+j  org.codehaus.plexus.classworlds.realm.ClassRealm.loadClassFromSelf(Ljava/lang/String;)Ljava/lang/Class;+20
+j  org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(Ljava/lang/String;)Ljava/lang/Class;+18
+j  org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(Ljava/lang/String;Z)Ljava/lang/Class;+13
+j  org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+9
+j  org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+v  ~StubRoutines::call_stub
+j  org.apache.maven.cli.MavenCli.container(Lorg/apache/maven/cli/CliRequest;)Lorg/codehaus/plexus/PlexusContainer;+68
+j  org.apache.maven.cli.MavenCli.doMain(Lorg/apache/maven/cli/CliRequest;)I+29
+j  org.apache.maven.cli.MavenCli.main([Ljava/lang/String;Lorg/codehaus/plexus/classworlds/ClassWorld;)I+18
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+100
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+56
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced([Ljava/lang/String;)V+45
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launch([Ljava/lang/String;)V+2
+j  org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode([Ljava/lang/String;)I+101
+j  org.codehaus.plexus.classworlds.launcher.Launcher.main([Ljava/lang/String;)V+1
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x638aa400 JavaThread "Service Thread" daemon [_thread_blocked, id=31126, stack(0x6318a000,0x631db000)]
+  0x638a7000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=31124, stack(0x631db000,0x6325c000)]
+  0x638a5c00 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=31120, stack(0x6325c000,0x632dd000)]
+  0x638a3c00 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=31119, stack(0x632dd000,0x6335e000)]
+  0x638a2400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=31115, stack(0x6335e000,0x633af000)]
+  0x63888400 JavaThread "Finalizer" daemon [_thread_blocked, id=31113, stack(0x635af000,0x63600000)]
+  0x63885800 JavaThread "Reference Handler" daemon [_thread_blocked, id=31108, stack(0x63913000,0x63964000)]
+=>0xb6307800 JavaThread "main" [_thread_in_vm, id=31091, stack(0xb6409000,0xb645a000)]
+
+Other Threads:
+  0x63881000 VMThread [stack: 0x63964000,0x639e5000] [id=31107]
+  0x638ac000 WatcherThread [stack: 0x63109000,0x6318a000] [id=31128]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 19200K, used 4343K [0x918c0000, 0x92e00000, 0xa6e00000)
+  eden space 16640K, 26% used [0x918c0000,0x91cfdd50,0x92900000)
+  from space 2560K, 0% used [0x92b80000,0x92b80000,0x92e00000)
+  to   space 2560K, 0% used [0x92900000,0x92900000,0x92b80000)
+ ParOldGen       total 43776K, used 0K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 0% used [0x66e00000,0x66e00000,0x698c0000)
+ Metaspace       used 2534K, capacity 2570K, committed 2584K, reserved 4400K
+
+Card table byte_map: [0x66bff000,0x66e00000] byte_map_base: 0x668c8000
+
+Marking Bits: (ParMarkBitMap*) 0xb717f880
+ Begin Bits: [0x64400000, 0x65400000)
+ End Bits:   [0x65400000, 0x66400000)
+
+Polling page: 0xb778c000
+
+CodeCache: size=245760Kb used=985Kb max_used=985Kb free=244774Kb
+ bounds [0xa727a000, 0xa74ba000, 0xb627a000]
+ total_blobs=346 nmethods=189 adapters=72
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 1.532 Thread 0x638a7000  185       3       java.util.Hashtable$Entry::<init> (26 bytes)
+Event: 1.532 Thread 0x638a7000 nmethod 185 0xa736de08 code [0xa736df20, 0xa736e080]
+Event: 1.537 Thread 0x638a7000  186   !   3       java.util.zip.InflaterInputStream::read (138 bytes)
+Event: 1.541 Thread 0x638a7000 nmethod 186 0xa736e148 code [0xa736e3e0, 0xa736f134]
+Event: 1.553 Thread 0x638a7000  187       3       java.util.HashSet::add (20 bytes)
+Event: 1.555 Thread 0x638a7000 nmethod 187 0xa736f9c8 code [0xa736fb00, 0xa736fed8]
+Event: 1.612 Thread 0x638a7000  189       3       java.util.jar.Attributes::get (11 bytes)
+Event: 1.612 Thread 0x638a7000 nmethod 189 0xa7370088 code [0xa73701a0, 0xa737030c]
+Event: 1.612 Thread 0x638a7000  188       3       java.util.jar.Attributes::getValue (9 bytes)
+Event: 1.613 Thread 0x638a7000 nmethod 188 0xa73703c8 code [0xa7370500, 0xa737078c]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (8 events):
+Event: 0.071 Thread 0xb6307800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x918c6e90) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jn
+Event: 0.071 Thread 0xb6307800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x918c7160) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jni.cpp, line 4011]
+Event: 1.336 Thread 0xb6307800 Exception <a 'java/security/PrivilegedActionException'> (0x91bd0a00) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 1.336 Thread 0xb6307800 Exception <a 'java/security/PrivilegedActionException'> (0x91bd0de0) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 1.337 Thread 0xb6307800 Exception <a 'java/security/PrivilegedActionException'> (0x91bd2e00) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 1.337 Thread 0xb6307800 Exception <a 'java/security/PrivilegedActionException'> (0x91bd31e0) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 1.338 Thread 0xb6307800 Exception <a 'java/security/PrivilegedActionException'> (0x91bd3df8) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 1.338 Thread 0xb6307800 Exception <a 'java/security/PrivilegedActionException'> (0x91bd41d8) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+
+Events (10 events):
+Event: 1.533 loading class org/apache/maven/cli/CLIReportingUtils
+Event: 1.533 loading class org/apache/maven/cli/CLIReportingUtils done
+Event: 1.590 loading class org/codehaus/plexus/util/StringUtils
+Event: 1.590 loading class org/codehaus/plexus/util/StringUtils done
+Event: 1.594 loading class java/lang/StringIndexOutOfBoundsException
+Event: 1.594 loading class java/lang/IndexOutOfBoundsException
+Event: 1.594 loading class java/lang/IndexOutOfBoundsException done
+Event: 1.594 loading class java/lang/StringIndexOutOfBoundsException done
+Event: 1.611 loading class org/apache/maven/extension/internal/CoreExtensionEntry
+Event: 1.611 loading class org/apache/maven/extension/internal/CoreExtensionEntry done
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:01 1693306    /usr/lib/jvm/java-8-openjdk-i386/jre/bin/java
+08049000-0804a000 r--p 00000000 08:01 1693306    /usr/lib/jvm/java-8-openjdk-i386/jre/bin/java
+0804a000-0804b000 rw-p 00001000 08:01 1693306    /usr/lib/jvm/java-8-openjdk-i386/jre/bin/java
+0902c000-0904d000 rw-p 00000000 00:00 0          [heap]
+62c00000-62c40000 rw-p 00000000 00:00 0 
+62c40000-62d00000 ---p 00000000 00:00 0 
+62e00000-62f00000 rw-p 00000000 00:00 0 
+62f84000-62f91000 r--s 0008d000 08:01 1149531    /usr/share/java/maven3-core-3.3.9.jar
+62f91000-62f94000 r--s 00007000 08:01 1149537    /usr/share/java/maven3-settings-builder-3.3.9.jar
+62f94000-62f9b000 r--s 0002c000 08:01 1149509    /usr/share/java/sisu-plexus.jar
+62f9b000-62fa3000 r--s 00054000 08:01 1149507    /usr/share/java/sisu-inject.jar
+62fa3000-62fcf000 r--s 00208000 08:01 1148516    /usr/share/java/guava.jar
+62fcf000-63000000 r--s 00207000 08:01 1149515    /usr/share/java/wagon-http-shaded-2.x.jar
+63000000-630fb000 rw-p 00000000 00:00 0 
+630fb000-63100000 ---p 00000000 00:00 0 
+63101000-63102000 r--s 00001000 08:01 1149511    /usr/share/java/wagon-file-2.x.jar
+63102000-63109000 r--s 0005d000 08:01 1149254    /usr/share/java/commons-lang3.jar
+63109000-6310a000 ---p 00000000 00:00 0 
+6310a000-6318a000 rw-p 00000000 00:00 0 
+6318a000-6318d000 ---p 00000000 00:00 0 
+6318d000-631db000 rw-p 00000000 00:00 0 
+631db000-631de000 ---p 00000000 00:00 0 
+631de000-6325c000 rw-p 00000000 00:00 0 
+6325c000-6325f000 ---p 00000000 00:00 0 
+6325f000-632dd000 rw-p 00000000 00:00 0 
+632dd000-632e0000 ---p 00000000 00:00 0 
+632e0000-6335e000 rw-p 00000000 00:00 0 
+6335e000-63361000 ---p 00000000 00:00 0 
+63361000-633af000 rw-p 00000000 00:00 0 
+633af000-635af000 r--p 00000000 08:01 1110568    /usr/lib/locale/locale-archive
+635af000-635b2000 ---p 00000000 00:00 0 
+635b2000-63600000 rw-p 00000000 00:00 0 
+63600000-6365e000 rw-p 00000000 00:00 0 
+6365e000-63700000 ---p 00000000 00:00 0 
+63700000-63721000 rw-p 00000000 00:00 0 
+63721000-63800000 ---p 00000000 00:00 0 
+63800000-638fe000 rw-p 00000000 00:00 0 
+638fe000-63900000 ---p 00000000 00:00 0 
+63900000-63902000 r--s 0000d000 08:01 1149536    /usr/share/java/maven3-aether-provider-3.3.9.jar
+63902000-63906000 r--s 00027000 08:01 1145546    /usr/share/java/commons-io-2.4.jar
+63906000-63907000 r--s 00004000 08:01 1145398    /usr/share/java/atinject-jsr330-tck-1.0.jar
+63907000-63909000 r--s 0000e000 08:01 1149271    /usr/share/java/plexus-interpolation.jar
+63909000-6390b000 r--s 00006000 08:01 1149372    /usr/share/java/eclipse-aether-spi.jar
+6390b000-6390f000 r--s 00027000 08:01 1149367    /usr/share/java/eclipse-aether-impl.jar
+6390f000-63911000 r--s 00005000 08:01 1149373    /usr/share/java/eclipse-aether-transport-wagon.jar
+63911000-63913000 r--s 00001000 08:01 1149403    /usr/share/java/aopalliance-1.0.jar
+63913000-63916000 ---p 00000000 00:00 0 
+63916000-63964000 rw-p 00000000 00:00 0 
+63964000-63965000 ---p 00000000 00:00 0 
+63965000-639e5000 rw-p 00000000 00:00 0 
+639e5000-63bb4000 r--s 03c21000 08:01 1693223    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/rt.jar
+63bb4000-63e3a000 rw-p 00000000 00:00 0 
+63e5a000-64000000 ---p 00000000 00:00 0 
+64000000-66400000 rw-p 00000000 00:00 0 
+66400000-66421000 rw-p 00000000 00:00 0 
+66421000-66500000 ---p 00000000 00:00 0 
+66500000-66501000 r--s 00008000 08:01 1149370    /usr/share/java/eclipse-aether-connector-basic.jar
+66501000-66503000 r--s 00001000 08:01 1149538    /usr/share/java/maven3-builder-support-3.3.9.jar
+66503000-66508000 r--s 0001d000 08:01 1149374    /usr/share/java/eclipse-aether-api.jar
+66508000-6650a000 r--s 00002000 08:01 1149449    /usr/share/java/plexus-cipher.jar
+6650a000-6650b000 r--s 00002000 08:01 1149066    /usr/share/java/slf4j-simple.jar
+6650b000-6650d000 r--s 00013000 08:01 1149534    /usr/share/java/maven3-embedder-3.3.9.jar
+6650d000-6650f000 r--s 00027000 08:01 1149535    /usr/share/java/maven3-model-3.3.9.jar
+6650f000-66511000 r--s 0000a000 08:01 1147016    /usr/share/java/commons-cli-1.3.1.jar
+66511000-66513000 r--s 0000a000 08:01 1149512    /usr/share/java/wagon-provider-api-2.x.jar
+66513000-66516000 r--s 0000a000 08:01 1149539    /usr/share/java/maven3-artifact-3.3.9.jar
+66516000-6651a000 r--s 00020000 08:01 1149392    /usr/share/java/eclipse-aether-util.jar
+6651a000-6651b000 r--s 00006000 08:01 1149532    /usr/share/java/maven3-repository-metadata-3.3.9.jar
+6651b000-6651d000 r--s 00007000 08:01 1149069    /usr/share/java/slf4j-api.jar
+6651d000-6651e000 r--s 0000a000 08:01 1149528    /usr/share/java/maven3-settings-3.3.9.jar
+6651e000-6651f000 r--s 00001000 08:01 1149518    /usr/share/java/wagon-http-shared-2.x.jar
+6651f000-66523000 r--s 00038000 08:01 1149495    /usr/share/java/plexus-utils2.jar
+66523000-66531000 r--s 00095000 08:01 1149408    /usr/share/java/guice.jar
+66531000-6657f000 rw-p 00000000 00:00 0 
+6657f000-66580000 ---p 00000000 00:00 0 
+66580000-66600000 rw-p 00000000 00:00 0 
+66600000-666cf000 rw-p 00000000 00:00 0 
+666cf000-66700000 ---p 00000000 00:00 0 
+66700000-66721000 rw-p 00000000 00:00 0 
+66721000-66800000 ---p 00000000 00:00 0 
+66800000-66801000 r--s 00006000 08:01 1149451    /usr/share/java/plexus-sec-dispatcher.jar
+66801000-66807000 r--s 00048000 08:01 1149288    /usr/share/java/jsoup.jar
+66807000-66809000 r--s 0000a000 08:01 1149529    /usr/share/java/maven3-plugin-api-3.3.9.jar
+66809000-66824000 r--s 00394000 08:01 1693228    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/cldrdata.jar
+66824000-6687f000 rw-p 00000000 00:00 0 
+6687f000-66880000 ---p 00000000 00:00 0 
+66880000-66900000 rw-p 00000000 00:00 0 
+66900000-66921000 rw-p 00000000 00:00 0 
+66921000-66a00000 ---p 00000000 00:00 0 
+66a00000-66a05000 r--s 00025000 08:01 1149533    /usr/share/java/maven3-model-builder-3.3.9.jar
+66a05000-66a0a000 r--s 00040000 08:01 1145678    /usr/share/java/commons-lang-2.6.jar
+66a0a000-66a0c000 r--s 00000000 08:01 1149499    /usr/share/java/plexus-component-annotations-1.5.jar
+66a0c000-66a0d000 r--s 00000000 08:01 1149240    /usr/share/java/geronimo-interceptor-3.0-spec-1.0.1.jar
+66a0d000-66a28000 r--s 001d6000 08:01 1693230    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/nashorn.jar
+66a28000-66a29000 ---p 00000000 00:00 0 
+66a29000-66abf000 rw-p 00000000 00:00 0 
+66abf000-66bff000 ---p 00000000 00:00 0 
+66bff000-66c15000 rw-p 00000000 00:00 0 
+66c15000-66d54000 ---p 00000000 00:00 0 
+66d54000-66d5f000 rw-p 00000000 00:00 0 
+66d5f000-66dff000 ---p 00000000 00:00 0 
+66dff000-698c0000 rw-p 00000000 00:00 0 
+698c0000-918c0000 ---p 00000000 00:00 0 
+918c0000-92e00000 rw-p 00000000 00:00 0 
+92e00000-a6e00000 ---p 00000000 00:00 0 
+a6e00000-a6e02000 r--s 00012000 08:01 1144777    /usr/share/java/el-api-3.0.jar
+a6e02000-a6e03000 r--s 00000000 08:01 1145399    /usr/share/java/atinject-jsr330-api-1.0.jar
+a6e03000-a6e06000 r--s 00008000 08:01 1149246    /usr/share/java/cdi-api-1.0.jar
+a6e06000-a6e0d000 r--s 00041000 08:01 1149530    /usr/share/java/maven3-compat-3.3.9.jar
+a6e0d000-a6e0f000 r--s 0000a000 08:01 1149493    /usr/share/java/plexus-classworlds2-2.5.2.jar
+a6e0f000-a6e11000 r--s 00008000 08:01 1693232    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunec.jar
+a6e11000-a6e17000 r--s 0003a000 08:01 1693231    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunjce_provider.jar
+a6e17000-a6e21000 r--s 00116000 08:01 1693233    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/localedata.jar
+a6e21000-a6e39000 rw-p 00000000 00:00 0 
+a6e39000-a6e3a000 ---p 00000000 00:00 0 
+a6e3a000-a6ec3000 rw-p 00000000 00:00 0 
+a6ec3000-a727a000 ---p 00000000 00:00 0 
+a727a000-a74ba000 rwxp 00000000 00:00 0 
+a74ba000-b627a000 ---p 00000000 00:00 0 
+b627a000-b6285000 r-xp 00000000 08:01 3402889    /lib/i386-linux-gnu/libnss_files-2.23.so
+b6285000-b6286000 r--p 0000a000 08:01 3402889    /lib/i386-linux-gnu/libnss_files-2.23.so
+b6286000-b6287000 rw-p 0000b000 08:01 3402889    /lib/i386-linux-gnu/libnss_files-2.23.so
+b6287000-b628d000 rw-p 00000000 00:00 0 
+b628d000-b6298000 r-xp 00000000 08:01 3402895    /lib/i386-linux-gnu/libnss_nis-2.23.so
+b6298000-b6299000 r--p 0000a000 08:01 3402895    /lib/i386-linux-gnu/libnss_nis-2.23.so
+b6299000-b629a000 rw-p 0000b000 08:01 3402895    /lib/i386-linux-gnu/libnss_nis-2.23.so
+b629a000-b62b1000 r-xp 00000000 08:01 3402652    /lib/i386-linux-gnu/libnsl-2.23.so
+b62b1000-b62b2000 r--p 00016000 08:01 3402652    /lib/i386-linux-gnu/libnsl-2.23.so
+b62b2000-b62b3000 rw-p 00017000 08:01 3402652    /lib/i386-linux-gnu/libnsl-2.23.so
+b62b3000-b62b5000 rw-p 00000000 00:00 0 
+b62b5000-b62bd000 r-xp 00000000 08:01 3402720    /lib/i386-linux-gnu/libnss_compat-2.23.so
+b62bd000-b62be000 r--p 00007000 08:01 3402720    /lib/i386-linux-gnu/libnss_compat-2.23.so
+b62be000-b62bf000 rw-p 00008000 08:01 3402720    /lib/i386-linux-gnu/libnss_compat-2.23.so
+b62bf000-b62c0000 r--s 00010000 08:01 1693229    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/zipfs.jar
+b62c0000-b62c2000 r--s 00001000 08:01 1693236    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/dnsns.jar
+b62c2000-b62c5000 r--s 0000f000 08:01 1693227    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/icedtea-sound.jar
+b62c5000-b62cd000 r-xp 00000000 08:01 1693277    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libzip.so
+b62cd000-b62ce000 r--p 00007000 08:01 1693277    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libzip.so
+b62ce000-b62cf000 rw-p 00008000 08:01 1693277    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libzip.so
+b62cf000-b62d7000 rw-s 00000000 08:01 2576744    /tmp/hsperfdata_sarnobat/31009
+b62d7000-b62fe000 r-xp 00000000 08:01 1693258    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libjava.so
+b62fe000-b62ff000 r--p 00026000 08:01 1693258    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libjava.so
+b62ff000-b6300000 rw-p 00027000 08:01 1693258    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libjava.so
+b6300000-b63fb000 rw-p 00000000 00:00 0 
+b63fb000-b6400000 ---p 00000000 00:00 0 
+b6400000-b6407000 r-xp 00000000 08:01 3402905    /lib/i386-linux-gnu/librt-2.23.so
+b6407000-b6408000 r--p 00006000 08:01 3402905    /lib/i386-linux-gnu/librt-2.23.so
+b6408000-b6409000 rw-p 00007000 08:01 3402905    /lib/i386-linux-gnu/librt-2.23.so
+b6409000-b640c000 ---p 00000000 00:00 0 
+b640c000-b645a000 rw-p 00000000 00:00 0 
+b645a000-b6476000 r-xp 00000000 08:01 3402590    /lib/i386-linux-gnu/libgcc_s.so.1
+b6476000-b6477000 rw-p 0001b000 08:01 3402590    /lib/i386-linux-gnu/libgcc_s.so.1
+b6477000-b64ca000 r-xp 00000000 08:01 3402651    /lib/i386-linux-gnu/libm-2.23.so
+b64ca000-b64cb000 r--p 00052000 08:01 3402651    /lib/i386-linux-gnu/libm-2.23.so
+b64cb000-b64cc000 rw-p 00053000 08:01 3402651    /lib/i386-linux-gnu/libm-2.23.so
+b64cc000-b6639000 r-xp 00000000 08:01 1104849    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b6639000-b663a000 ---p 0016d000 08:01 1104849    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b663a000-b663f000 r--p 0016d000 08:01 1104849    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b663f000-b6640000 rw-p 00172000 08:01 1104849    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b6640000-b6643000 rw-p 00000000 00:00 0 
+b6643000-b7114000 r-xp 00000000 08:01 1693269    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server/libjvm.so
+b7114000-b715a000 r--p 00ad0000 08:01 1693269    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server/libjvm.so
+b715a000-b7171000 rw-p 00b16000 08:01 1693269    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server/libjvm.so
+b7171000-b7591000 rw-p 00000000 00:00 0 
+b7591000-b75aa000 r-xp 00000000 08:01 3402662    /lib/i386-linux-gnu/libpthread-2.23.so
+b75aa000-b75ab000 r--p 00018000 08:01 3402662    /lib/i386-linux-gnu/libpthread-2.23.so
+b75ab000-b75ac000 rw-p 00019000 08:01 3402662    /lib/i386-linux-gnu/libpthread-2.23.so
+b75ac000-b75ae000 rw-p 00000000 00:00 0 
+b75ae000-b75b1000 r-xp 00000000 08:01 3402697    /lib/i386-linux-gnu/libdl-2.23.so
+b75b1000-b75b2000 r--p 00002000 08:01 3402697    /lib/i386-linux-gnu/libdl-2.23.so
+b75b2000-b75b3000 rw-p 00003000 08:01 3402697    /lib/i386-linux-gnu/libdl-2.23.so
+b75b3000-b75b4000 rw-p 00000000 00:00 0 
+b75b4000-b75cd000 r-xp 00000000 08:01 3402741    /lib/i386-linux-gnu/libz.so.1.2.8
+b75cd000-b75ce000 r--p 00018000 08:01 3402741    /lib/i386-linux-gnu/libz.so.1.2.8
+b75ce000-b75cf000 rw-p 00019000 08:01 3402741    /lib/i386-linux-gnu/libz.so.1.2.8
+b75cf000-b777f000 r-xp 00000000 08:01 3402663    /lib/i386-linux-gnu/libc-2.23.so
+b777f000-b7781000 r--p 001af000 08:01 3402663    /lib/i386-linux-gnu/libc-2.23.so
+b7781000-b7782000 rw-p 001b1000 08:01 3402663    /lib/i386-linux-gnu/libc-2.23.so
+b7782000-b7785000 rw-p 00000000 00:00 0 
+b7785000-b7786000 r--s 0000a000 08:01 1693235    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/jaccess.jar
+b7786000-b778a000 r--s 00037000 08:01 1693234    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunpkcs11.jar
+b778a000-b778b000 r--p 002d4000 08:01 1110568    /usr/lib/locale/locale-archive
+b778b000-b778c000 rw-p 00000000 00:00 0 
+b778c000-b778d000 r--p 00000000 00:00 0 
+b778d000-b779b000 r-xp 00000000 08:01 1693275    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libverify.so
+b779b000-b779c000 r--p 0000d000 08:01 1693275    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libverify.so
+b779c000-b779d000 rw-p 0000e000 08:01 1693275    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libverify.so
+b779d000-b77aa000 r-xp 00000000 08:01 1693273    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/jli/libjli.so
+b77aa000-b77ab000 r--p 0000c000 08:01 1693273    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/jli/libjli.so
+b77ab000-b77ac000 rw-p 0000d000 08:01 1693273    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/jli/libjli.so
+b77ac000-b77ad000 rw-p 00000000 00:00 0 
+b77ad000-b77af000 r--p 00000000 00:00 0          [vvar]
+b77af000-b77b0000 r-xp 00000000 00:00 0          [vdso]
+b77b0000-b77d3000 r-xp 00000000 08:01 3402661    /lib/i386-linux-gnu/ld-2.23.so
+b77d3000-b77d4000 r--p 00022000 08:01 3402661    /lib/i386-linux-gnu/ld-2.23.so
+b77d4000-b77d5000 rw-p 00023000 08:01 3402661    /lib/i386-linux-gnu/ld-2.23.so
+bfbdc000-bfbfd000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dclassworlds.conf=/usr/share/maven/bin/m2.conf -Dmaven.home=/usr/share/maven -Dmaven.multiModuleProjectDirectory=/home/sarnobat/github/maven_project 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher --quiet --settings /home/sarnobat/sarnobat.git/mac/.m2/settings.xml install exec:java -Dexec.mainClass=Md5RoList -Dexec.args=4485
+java_class_path (initial): /usr/share/maven/boot/plexus-classworlds-2.x.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-i386
+PATH=/usr/bin:/bin
+SHELL=/bin/sh
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x8d7370], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x8d7370], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x73d000], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
+
+uname:Linux 4.4.0-104-generic #127-Ubuntu SMP Mon Dec 11 12:16:50 UTC 2017 i686
+libc:glibc 2.23 NPTL 2.23 
+rlimit: STACK 8192k, CORE 0k, NPROC 63057, NOFILE 1048576, AS infinity
+load average:2.06 2.12 2.17
+
+/proc/meminfo:
+MemTotal:        8107456 kB
+MemFree:          413424 kB
+MemAvailable:          0 kB
+Buffers:            2564 kB
+Cached:           207932 kB
+SwapCached:         3132 kB
+Active:          5998084 kB
+Inactive:        1484372 kB
+Active(anon):    5986052 kB
+Inactive(anon):  1475712 kB
+Active(file):      12032 kB
+Inactive(file):     8660 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+HighTotal:       7292552 kB
+HighFree:         108100 kB
+LowTotal:         814904 kB
+LowFree:          305324 kB
+SwapTotal:       4007932 kB
+SwapFree:              0 kB
+Dirty:               724 kB
+Writeback:             0 kB
+AnonPages:       7269864 kB
+Mapped:            23972 kB
+Shmem:            188964 kB
+Slab:              98608 kB
+SReclaimable:      51468 kB
+SUnreclaim:        47140 kB
+KernelStack:       16448 kB
+PageTables:        46512 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     8061660 kB
+Committed_AS:   25246640 kB
+VmallocTotal:     122880 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+AnonHugePages:   3942400 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       34808 kB
+DirectMap2M:      876544 kB
+
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, ht, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3427U CPU @ 1.80GHz
+stepping	: 9
+microcode	: 0x17
+cpu MHz		: 1099.957
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 4589.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3427U CPU @ 1.80GHz
+stepping	: 9
+microcode	: 0x17
+cpu MHz		: 1099.957
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 4589.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3427U CPU @ 1.80GHz
+stepping	: 9
+microcode	: 0x17
+cpu MHz		: 1099.957
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 4589.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3427U CPU @ 1.80GHz
+stepping	: 9
+microcode	: 0x17
+cpu MHz		: 1099.957
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 4589.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 8107456k(413084k free), swap 4007932k(0k free)
+
+vm_info: OpenJDK Server VM (25.151-b12) for linux-x86 JRE (1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12), built on Oct 27 2017 22:05:04 by "buildd" with gcc 5.4.0 20160609
+
+time: Wed Mar 21 17:50:03 2018
+elapsed time: 1 seconds (0d 0h 0m 1s)
+

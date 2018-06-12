@@ -1,0 +1,1019 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 131072 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2643), pid=21299, tid=0xb63ddb40
+#
+# JRE version: OpenJDK Runtime Environment (8.0_151-b12) (build 1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12)
+# Java VM: OpenJDK Server VM (25.151-b12 mixed mode linux-x86 )
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb6207800):  JavaThread "main" [_thread_in_vm, id=21356, stack(0xb638d000,0xb63de000)]
+
+Stack: [0xb638d000,0xb63de000],  sp=0xb63d6a74,  free space=294k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x8d6834]
+V  [libjvm.so+0x3a7c76]
+V  [libjvm.so+0x7420c0]
+V  [libjvm.so+0x73c013]
+V  [libjvm.so+0x8d3264]
+V  [libjvm.so+0x6cdd63]
+V  [libjvm.so+0x6cdf7a]
+V  [libjvm.so+0x6ceb05]
+V  [libjvm.so+0x6cec5a]
+V  [libjvm.so+0x6cfc9a]
+V  [libjvm.so+0x6cfe8d]
+V  [libjvm.so+0x3a72c8]
+V  [libjvm.so+0x7cdde4]
+V  [libjvm.so+0x7ce607]
+V  [libjvm.so+0x4e563c]
+V  [libjvm.so+0x4e5e18]
+V  [libjvm.so+0x4ec23c]
+V  [libjvm.so+0x4ec7aa]
+V  [libjvm.so+0x62d508]
+V  [libjvm.so+0x63147a]
+V  [libjvm.so+0x633a38]
+V  [libjvm.so+0x513af7]
+j  java.lang.Double.toString(D)Ljava/lang/String;+1
+j  java.lang.String.valueOf(D)Ljava/lang/String;+1
+j  java.security.Provider.putId()V+21
+j  java.security.Provider.<init>(Ljava/lang/String;DLjava/lang/String;)V+31
+j  sun.security.jca.ProviderList$1.<init>(Ljava/lang/String;DLjava/lang/String;)V+5
+j  sun.security.jca.ProviderList.<clinit>()V+47
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51ebea]
+V  [libjvm.so+0x4ebfb8]
+V  [libjvm.so+0x4ec367]
+V  [libjvm.so+0x4ec7aa]
+V  [libjvm.so+0x62ccfa]
+V  [libjvm.so+0x62d12a]
+V  [libjvm.so+0x512148]
+j  sun.security.jca.Providers.<clinit>()V+10
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x51faad]
+V  [libjvm.so+0x746985]
+V  [libjvm.so+0x51ebea]
+V  [libjvm.so+0x4ebfb8]
+V  [libjvm.so+0x4ec367]
+V  [libjvm.so+0x4ec7aa]
+V  [libjvm.so+0x62d508]
+V  [libjvm.so+0x63147a]
+V  [libjvm.so+0x633a38]
+V  [libjvm.so+0x513af7]
+j  sun.security.jca.GetInstance.getInstance(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;+0
+j  java.security.Security.getImpl(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/Object;+10
+j  java.security.MessageDigest.getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;+7
+j  org.sonatype.plexus.components.cipher.PBECipher.<init>()V+12
+j  org.sonatype.plexus.components.cipher.DefaultPlexusCipher.<init>()V+9
+j  org.sonatype.plexus.components.cipher.DefaultPlexusCipher$$FastClassByGuice$$f9038c08.newInstance(I[Ljava/lang/Object;)Ljava/lang/Object;+24
+j  com.google.inject.internal.cglib.reflect.$FastConstructor.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+9
+j  com.google.inject.internal.DefaultConstructionProxyFactory$1.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+5
+j  com.google.inject.internal.ConstructorInjector.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+17
+j  com.google.inject.internal.ConstructorInjector.access$000(Lcom/google/inject/internal/ConstructorInjector;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+4
+j  com.google.inject.internal.ConstructorInjector$1.call()Ljava/lang/Object;+16
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609828 [0xa7609700+0x128]
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609b8c [0xa7609700+0x48c]
+J 1560 C1 com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object; (117 bytes) @ 0xa7616978 [0xa7616880+0xf8]
+j  com.google.inject.internal.ConstructorInjector.construct(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Ljava/lang/Class;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+89
+j  com.google.inject.internal.ConstructorBindingImpl$Factory.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+61
+J 1570 C1 com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object; (68 bytes) @ 0xa7619260 [0xa7618f00+0x360]
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+J 1541 C1 com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object; (56 bytes) @ 0xa7611c84 [0xa7611a00+0x284]
+j  com.google.inject.internal.InjectorImpl.getInstance(Ljava/lang/Class;)Ljava/lang/Object;+5
+j  org.eclipse.sisu.space.AbstractDeferredClass.get()Ljava/lang/Object;+8
+j  com.google.inject.internal.ProviderInternalFactory.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+2
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+6
+j  com.google.inject.internal.ProviderInternalFactory$1.call()Ljava/lang/Object;+20
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609828 [0xa7609700+0x128]
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609b8c [0xa7609700+0x48c]
+J 1560 C1 com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object; (117 bytes) @ 0xa7616978 [0xa7616880+0xf8]
+j  com.google.inject.internal.ProviderInternalFactory.circularGet(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+101
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+21
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+19
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter.get()Ljava/lang/Object;+21
+J 1572 C1 com.google.inject.internal.SingletonScope$1.get()Ljava/lang/Object; (434 bytes) @ 0xa761e958 [0xa761e720+0x238]
+J 1571 C1 com.google.inject.internal.InternalFactoryToProviderAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object; (38 bytes) @ 0xa761bbc8 [0xa761bae0+0xe8]
+J 1570 C1 com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object; (68 bytes) @ 0xa7619260 [0xa7618f00+0x360]
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+J 1541 C1 com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object; (56 bytes) @ 0xa7611c84 [0xa7611a00+0x284]
+j  org.eclipse.sisu.inject.LazyBeanEntry.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.LazyPlexusBean.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.PlexusRequirements$RequirementProvider.get()Ljava/lang/Object;+28
+j  org.eclipse.sisu.plexus.ProvidedPropertyBinding.injectProperty(Ljava/lang/Object;)V+9
+j  org.eclipse.sisu.bean.BeanInjector.injectMembers(Ljava/lang/Object;)V+26
+j  com.google.inject.internal.MembersInjectorImpl.injectMembers(Ljava/lang/Object;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Z)V+106
+j  com.google.inject.internal.ConstructorInjector.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+61
+j  com.google.inject.internal.ConstructorInjector.access$000(Lcom/google/inject/internal/ConstructorInjector;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+4
+j  com.google.inject.internal.ConstructorInjector$1.call()Ljava/lang/Object;+16
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609828 [0xa7609700+0x128]
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609b8c [0xa7609700+0x48c]
+J 1560 C1 com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object; (117 bytes) @ 0xa7616978 [0xa7616880+0xf8]
+j  com.google.inject.internal.ConstructorInjector.construct(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Ljava/lang/Class;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+89
+...<more frames>...
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.Double.toString(D)Ljava/lang/String;+1
+j  java.lang.String.valueOf(D)Ljava/lang/String;+1
+j  java.security.Provider.putId()V+21
+j  java.security.Provider.<init>(Ljava/lang/String;DLjava/lang/String;)V+31
+j  sun.security.jca.ProviderList$1.<init>(Ljava/lang/String;DLjava/lang/String;)V+5
+j  sun.security.jca.ProviderList.<clinit>()V+47
+v  ~StubRoutines::call_stub
+j  sun.security.jca.Providers.<clinit>()V+10
+v  ~StubRoutines::call_stub
+j  sun.security.jca.GetInstance.getInstance(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Lsun/security/jca/GetInstance$Instance;+0
+j  java.security.Security.getImpl(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/Object;+10
+j  java.security.MessageDigest.getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;+7
+j  org.sonatype.plexus.components.cipher.PBECipher.<init>()V+12
+j  org.sonatype.plexus.components.cipher.DefaultPlexusCipher.<init>()V+9
+j  org.sonatype.plexus.components.cipher.DefaultPlexusCipher$$FastClassByGuice$$f9038c08.newInstance(I[Ljava/lang/Object;)Ljava/lang/Object;+24
+j  com.google.inject.internal.cglib.reflect.$FastConstructor.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+9
+j  com.google.inject.internal.DefaultConstructionProxyFactory$1.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+5
+j  com.google.inject.internal.ConstructorInjector.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+17
+j  com.google.inject.internal.ConstructorInjector.access$000(Lcom/google/inject/internal/ConstructorInjector;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+4
+j  com.google.inject.internal.ConstructorInjector$1.call()Ljava/lang/Object;+16
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609828 [0xa7609700+0x128]
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609b8c [0xa7609700+0x48c]
+J 1560 C1 com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object; (117 bytes) @ 0xa7616978 [0xa7616880+0xf8]
+j  com.google.inject.internal.ConstructorInjector.construct(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Ljava/lang/Class;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+89
+j  com.google.inject.internal.ConstructorBindingImpl$Factory.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+61
+J 1570 C1 com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object; (68 bytes) @ 0xa7619260 [0xa7618f00+0x360]
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+J 1541 C1 com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object; (56 bytes) @ 0xa7611c84 [0xa7611a00+0x284]
+j  com.google.inject.internal.InjectorImpl.getInstance(Ljava/lang/Class;)Ljava/lang/Object;+5
+j  org.eclipse.sisu.space.AbstractDeferredClass.get()Ljava/lang/Object;+8
+j  com.google.inject.internal.ProviderInternalFactory.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+2
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+6
+j  com.google.inject.internal.ProviderInternalFactory$1.call()Ljava/lang/Object;+20
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609828 [0xa7609700+0x128]
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609b8c [0xa7609700+0x48c]
+J 1560 C1 com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object; (117 bytes) @ 0xa7616978 [0xa7616880+0xf8]
+j  com.google.inject.internal.ProviderInternalFactory.circularGet(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+101
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+21
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+19
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter.get()Ljava/lang/Object;+21
+J 1572 C1 com.google.inject.internal.SingletonScope$1.get()Ljava/lang/Object; (434 bytes) @ 0xa761e958 [0xa761e720+0x238]
+J 1571 C1 com.google.inject.internal.InternalFactoryToProviderAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object; (38 bytes) @ 0xa761bbc8 [0xa761bae0+0xe8]
+J 1570 C1 com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object; (68 bytes) @ 0xa7619260 [0xa7618f00+0x360]
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+J 1541 C1 com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object; (56 bytes) @ 0xa7611c84 [0xa7611a00+0x284]
+j  org.eclipse.sisu.inject.LazyBeanEntry.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.LazyPlexusBean.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.PlexusRequirements$RequirementProvider.get()Ljava/lang/Object;+28
+j  org.eclipse.sisu.plexus.ProvidedPropertyBinding.injectProperty(Ljava/lang/Object;)V+9
+j  org.eclipse.sisu.bean.BeanInjector.injectMembers(Ljava/lang/Object;)V+26
+j  com.google.inject.internal.MembersInjectorImpl.injectMembers(Ljava/lang/Object;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Z)V+106
+j  com.google.inject.internal.ConstructorInjector.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+61
+j  com.google.inject.internal.ConstructorInjector.access$000(Lcom/google/inject/internal/ConstructorInjector;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+4
+j  com.google.inject.internal.ConstructorInjector$1.call()Ljava/lang/Object;+16
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609828 [0xa7609700+0x128]
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609b8c [0xa7609700+0x48c]
+J 1560 C1 com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object; (117 bytes) @ 0xa7616978 [0xa7616880+0xf8]
+j  com.google.inject.internal.ConstructorInjector.construct(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Ljava/lang/Class;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+89
+j  com.google.inject.internal.ConstructorBindingImpl$Factory.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+61
+J 1570 C1 com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object; (68 bytes) @ 0xa7619260 [0xa7618f00+0x360]
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+J 1541 C1 com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object; (56 bytes) @ 0xa7611c84 [0xa7611a00+0x284]
+j  com.google.inject.internal.InjectorImpl.getInstance(Ljava/lang/Class;)Ljava/lang/Object;+5
+j  org.eclipse.sisu.space.AbstractDeferredClass.get()Ljava/lang/Object;+8
+j  com.google.inject.internal.ProviderInternalFactory.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+2
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+6
+j  com.google.inject.internal.ProviderInternalFactory$1.call()Ljava/lang/Object;+20
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609828 [0xa7609700+0x128]
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609b8c [0xa7609700+0x48c]
+J 1560 C1 com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object; (117 bytes) @ 0xa7616978 [0xa7616880+0xf8]
+j  com.google.inject.internal.ProviderInternalFactory.circularGet(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+101
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+21
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+19
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter.get()Ljava/lang/Object;+21
+j  com.google.inject.internal.SingletonScope$1.get()Ljava/lang/Object;+39
+J 1571 C1 com.google.inject.internal.InternalFactoryToProviderAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object; (38 bytes) @ 0xa761bbc8 [0xa761bae0+0xe8]
+J 1570 C1 com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object; (68 bytes) @ 0xa7619260 [0xa7618f00+0x360]
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+J 1541 C1 com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object; (56 bytes) @ 0xa7611c84 [0xa7611a00+0x284]
+j  org.eclipse.sisu.inject.LazyBeanEntry.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.LazyPlexusBean.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.PlexusRequirements$RequirementProvider.get()Ljava/lang/Object;+28
+j  org.eclipse.sisu.plexus.ProvidedPropertyBinding.injectProperty(Ljava/lang/Object;)V+9
+j  org.eclipse.sisu.bean.BeanInjector.injectMembers(Ljava/lang/Object;)V+26
+j  com.google.inject.internal.MembersInjectorImpl.injectMembers(Ljava/lang/Object;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Z)V+106
+j  com.google.inject.internal.ConstructorInjector.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+61
+j  com.google.inject.internal.ConstructorInjector.access$000(Lcom/google/inject/internal/ConstructorInjector;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+4
+j  com.google.inject.internal.ConstructorInjector$1.call()Ljava/lang/Object;+16
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609828 [0xa7609700+0x128]
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609b8c [0xa7609700+0x48c]
+J 1560 C1 com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object; (117 bytes) @ 0xa7616978 [0xa7616880+0xf8]
+j  com.google.inject.internal.ConstructorInjector.construct(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Ljava/lang/Class;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+89
+j  com.google.inject.internal.ConstructorBindingImpl$Factory.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+61
+J 1570 C1 com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object; (68 bytes) @ 0xa7619260 [0xa7618f00+0x360]
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+J 1541 C1 com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object; (56 bytes) @ 0xa7611c84 [0xa7611a00+0x284]
+j  com.google.inject.internal.InjectorImpl.getInstance(Ljava/lang/Class;)Ljava/lang/Object;+5
+j  org.eclipse.sisu.space.AbstractDeferredClass.get()Ljava/lang/Object;+8
+j  com.google.inject.internal.ProviderInternalFactory.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+2
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+6
+j  com.google.inject.internal.ProviderInternalFactory$1.call()Ljava/lang/Object;+20
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609828 [0xa7609700+0x128]
+J 1545 C1 com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object; (168 bytes) @ 0xa7609b8c [0xa7609700+0x48c]
+J 1560 C1 com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object; (117 bytes) @ 0xa7616978 [0xa7616880+0xf8]
+j  com.google.inject.internal.ProviderInternalFactory.circularGet(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+101
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+21
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+19
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter.get()Ljava/lang/Object;+21
+j  com.google.inject.internal.SingletonScope$1.get()Ljava/lang/Object;+39
+J 1571 C1 com.google.inject.internal.InternalFactoryToProviderAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object; (38 bytes) @ 0xa761bbc8 [0xa761bae0+0xe8]
+J 1570 C1 com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object; (68 bytes) @ 0xa7619260 [0xa7618f00+0x360]
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+J 1541 C1 com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object; (56 bytes) @ 0xa7611c84 [0xa7611a00+0x284]
+j  org.eclipse.sisu.inject.LazyBeanEntry.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.LazyPlexusBean.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.PlexusRequirements$RequirementProvider.get()Ljava/lang/Object;+28
+j  org.eclipse.sisu.plexus.ProvidedPropertyBinding.injectProperty(Ljava/lang/Object;)V+9
+j  org.eclipse.sisu.bean.BeanInjector.injectMembers(Ljava/lang/Object;)V+26
+j  com.google.inject.internal.MembersInjectorImpl.injectMembers(Ljava/lang/Object;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Z)V+106
+j  com.google.inject.internal.ConstructorInjector.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+61
+j  com.google.inject.internal.ConstructorInjector.access$000(Lcom/google/inject/internal/ConstructorInjector;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+4
+j  com.google.inject.internal.ConstructorInjector$1.call()Ljava/lang/Object;+16
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+30
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+146
+j  com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object;+18
+j  com.google.inject.internal.ConstructorInjector.construct(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Ljava/lang/Class;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+89
+j  com.google.inject.internal.ConstructorBindingImpl$Factory.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+61
+j  com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+45
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object;+25
+j  com.google.inject.internal.InjectorImpl.getInstance(Ljava/lang/Class;)Ljava/lang/Object;+5
+j  org.eclipse.sisu.space.AbstractDeferredClass.get()Ljava/lang/Object;+8
+j  com.google.inject.internal.ProviderInternalFactory.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+2
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+6
+j  com.google.inject.internal.ProviderInternalFactory$1.call()Ljava/lang/Object;+20
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+30
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+146
+j  com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object;+18
+j  com.google.inject.internal.ProviderInternalFactory.circularGet(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+101
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+21
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+19
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter.get()Ljava/lang/Object;+21
+j  com.google.inject.internal.SingletonScope$1.get()Ljava/lang/Object;+39
+j  com.google.inject.internal.InternalFactoryToProviderAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+5
+j  com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+45
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object;+25
+j  org.eclipse.sisu.inject.LazyBeanEntry.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.LazyPlexusBean.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.PlexusRequirements$RequirementProvider.get()Ljava/lang/Object;+28
+j  org.eclipse.sisu.plexus.ProvidedPropertyBinding.injectProperty(Ljava/lang/Object;)V+9
+j  org.eclipse.sisu.bean.BeanInjector.injectMembers(Ljava/lang/Object;)V+26
+j  com.google.inject.internal.MembersInjectorImpl.injectMembers(Ljava/lang/Object;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Z)V+106
+j  com.google.inject.internal.ConstructorInjector.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+61
+j  com.google.inject.internal.ConstructorInjector.access$000(Lcom/google/inject/internal/ConstructorInjector;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+4
+j  com.google.inject.internal.ConstructorInjector$1.call()Ljava/lang/Object;+16
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+30
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+146
+j  com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object;+18
+j  com.google.inject.internal.ConstructorInjector.construct(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Ljava/lang/Class;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+89
+j  com.google.inject.internal.ConstructorBindingImpl$Factory.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+61
+j  com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+45
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object;+25
+j  com.google.inject.internal.InjectorImpl.getInstance(Ljava/lang/Class;)Ljava/lang/Object;+5
+j  org.eclipse.sisu.space.AbstractDeferredClass.get()Ljava/lang/Object;+8
+j  com.google.inject.internal.ProviderInternalFactory.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+2
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+6
+j  com.google.inject.internal.ProviderInternalFactory$1.call()Ljava/lang/Object;+20
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+30
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+146
+j  com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object;+18
+j  com.google.inject.internal.ProviderInternalFactory.circularGet(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+101
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+21
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+19
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter.get()Ljava/lang/Object;+21
+j  com.google.inject.internal.SingletonScope$1.get()Ljava/lang/Object;+39
+j  com.google.inject.internal.InternalFactoryToProviderAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+5
+j  com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+45
+J 1376 C1 com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object; (233 bytes) @ 0xa759e1b8 [0xa759d360+0xe58]
+j  com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object;+25
+j  org.eclipse.sisu.inject.LazyBeanEntry.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.LazyPlexusBean.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.PlexusRequirements$RequirementProvider.get()Ljava/lang/Object;+28
+j  org.eclipse.sisu.plexus.ProvidedPropertyBinding.injectProperty(Ljava/lang/Object;)V+9
+j  org.eclipse.sisu.bean.BeanInjector.injectMembers(Ljava/lang/Object;)V+26
+j  com.google.inject.internal.MembersInjectorImpl.injectMembers(Ljava/lang/Object;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Z)V+106
+j  com.google.inject.internal.ConstructorInjector.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+61
+j  com.google.inject.internal.ConstructorInjector.access$000(Lcom/google/inject/internal/ConstructorInjector;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+4
+j  com.google.inject.internal.ConstructorInjector$1.call()Ljava/lang/Object;+16
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+30
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+146
+j  com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object;+18
+j  com.google.inject.internal.ConstructorInjector.construct(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Ljava/lang/Class;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+89
+j  com.google.inject.internal.ConstructorBindingImpl$Factory.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+61
+j  com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+45
+j  com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object;+152
+j  com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object;+25
+j  com.google.inject.internal.InjectorImpl.getInstance(Ljava/lang/Class;)Ljava/lang/Object;+5
+j  org.eclipse.sisu.space.AbstractDeferredClass.get()Ljava/lang/Object;+8
+j  com.google.inject.internal.ProviderInternalFactory.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+2
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+6
+j  com.google.inject.internal.ProviderInternalFactory$1.call()Ljava/lang/Object;+20
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+30
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+146
+j  com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object;+18
+j  com.google.inject.internal.ProviderInternalFactory.circularGet(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+101
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+21
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+19
+j  com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object;+152
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter.get()Ljava/lang/Object;+21
+j  com.google.inject.internal.SingletonScope$1.get()Ljava/lang/Object;+39
+j  com.google.inject.internal.InternalFactoryToProviderAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+5
+j  com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+45
+j  com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object;+152
+j  com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object;+25
+j  org.eclipse.sisu.inject.LazyBeanEntry.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.LazyPlexusBean.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.PlexusRequirements$RequirementProvider.get()Ljava/lang/Object;+28
+j  org.eclipse.sisu.plexus.ProvidedPropertyBinding.injectProperty(Ljava/lang/Object;)V+9
+j  org.eclipse.sisu.bean.BeanInjector.injectMembers(Ljava/lang/Object;)V+26
+j  com.google.inject.internal.MembersInjectorImpl.injectMembers(Ljava/lang/Object;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Z)V+106
+j  com.google.inject.internal.ConstructorInjector.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+61
+j  com.google.inject.internal.ConstructorInjector.access$000(Lcom/google/inject/internal/ConstructorInjector;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+4
+j  com.google.inject.internal.ConstructorInjector$1.call()Ljava/lang/Object;+16
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+30
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+146
+j  com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object;+18
+j  com.google.inject.internal.ConstructorInjector.construct(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Ljava/lang/Class;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+89
+j  com.google.inject.internal.ConstructorBindingImpl$Factory.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+61
+j  com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+45
+j  com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object;+152
+j  com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object;+25
+j  com.google.inject.internal.InjectorImpl.getInstance(Ljava/lang/Class;)Ljava/lang/Object;+5
+j  org.eclipse.sisu.space.AbstractDeferredClass.get()Ljava/lang/Object;+8
+j  com.google.inject.internal.ProviderInternalFactory.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+2
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ConstructionContext;)Ljava/lang/Object;+6
+j  com.google.inject.internal.ProviderInternalFactory$1.call()Ljava/lang/Object;+20
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+30
+j  org.eclipse.sisu.bean.BeanScheduler$Activator.onProvision(Lcom/google/inject/spi/ProvisionListener$ProvisionInvocation;)V+18
+j  com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision()Ljava/lang/Object;+113
+j  com.google.inject.internal.ProvisionListenerStackCallback.provision(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/internal/ProvisionListenerStackCallback$ProvisionCallback;)Ljava/lang/Object;+18
+j  com.google.inject.internal.ProviderInternalFactory.circularGet(Ljavax/inject/Provider;Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Lcom/google/inject/internal/ProvisionListenerStackCallback;)Ljava/lang/Object;+101
+j  com.google.inject.internal.InternalFactoryToInitializableAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+21
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+19
+j  com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object;+152
+j  com.google.inject.internal.ProviderToInternalFactoryAdapter.get()Ljava/lang/Object;+21
+j  com.google.inject.internal.SingletonScope$1.get()Ljava/lang/Object;+39
+j  com.google.inject.internal.InternalFactoryToProviderAdapter.get(Lcom/google/inject/internal/Errors;Lcom/google/inject/internal/InternalContext;Lcom/google/inject/spi/Dependency;Z)Ljava/lang/Object;+5
+j  com.google.inject.internal.InjectorImpl$2$1.call(Lcom/google/inject/internal/InternalContext;)Ljava/lang/Object;+45
+j  com.google.inject.internal.InjectorImpl.callInContext(Lcom/google/inject/internal/ContextualCallable;)Ljava/lang/Object;+75
+j  com.google.inject.internal.InjectorImpl$2.get()Ljava/lang/Object;+25
+j  org.eclipse.sisu.inject.LazyBeanEntry.getValue()Ljava/lang/Object;+4
+j  org.eclipse.sisu.plexus.LazyPlexusBean.getValue()Ljava/lang/Object;+4
+j  org.codehaus.plexus.DefaultPlexusContainer.lookup(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;+27
+j  org.codehaus.plexus.DefaultPlexusContainer.lookup(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;+4
+j  org.codehaus.plexus.DefaultPlexusContainer.lookup(Ljava/lang/Class;)Ljava/lang/Object;+4
+j  org.apache.maven.cli.MavenCli.container(Lorg/apache/maven/cli/CliRequest;)Lorg/codehaus/plexus/PlexusContainer;+504
+j  org.apache.maven.cli.MavenCli.doMain(Lorg/apache/maven/cli/CliRequest;)I+29
+j  org.apache.maven.cli.MavenCli.main([Ljava/lang/String;Lorg/codehaus/plexus/classworlds/ClassWorld;)I+18
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+100
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+56
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced([Ljava/lang/String;)V+45
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launch([Ljava/lang/String;)V+2
+j  org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode([Ljava/lang/String;)I+101
+j  org.codehaus.plexus.classworlds.launcher.Launcher.main([Ljava/lang/String;)V+1
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x637aa400 JavaThread "Service Thread" daemon [_thread_blocked, id=21382, stack(0x630db000,0x6312c000)]
+  0x637a7000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=21381, stack(0x6312c000,0x631ad000)]
+  0x637a5c00 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=21380, stack(0x631ad000,0x6322e000)]
+  0x637a3c00 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=21375, stack(0x6322e000,0x632af000)]
+  0x637a2400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=21373, stack(0x632af000,0x63300000)]
+  0x63788400 JavaThread "Finalizer" daemon [_thread_blocked, id=21370, stack(0x63813000,0x63864000)]
+  0x63785800 JavaThread "Reference Handler" daemon [_thread_blocked, id=21368, stack(0x6642e000,0x6647f000)]
+=>0xb6207800 JavaThread "main" [_thread_in_vm, id=21356, stack(0xb638d000,0xb63de000)]
+
+Other Threads:
+  0x63781000 VMThread [stack: 0x63864000,0x638e5000] [id=21366]
+  0x637ac000 WatcherThread [stack: 0x6305a000,0x630db000] [id=21383]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 35840K, used 24332K [0x918c0000, 0x93e40000, 0xa6e00000)
+  eden space 33280K, 65% used [0x918c0000,0x92e07118,0x93940000)
+  from space 2560K, 99% used [0x93bc0000,0x93e3c070,0x93e40000)
+  to   space 2560K, 0% used [0x93940000,0x93940000,0x93bc0000)
+ ParOldGen       total 43776K, used 4342K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 9% used [0x66e00000,0x6723dac8,0x698c0000)
+ Metaspace       used 9094K, capacity 9166K, committed 9240K, reserved 9520K
+
+Card table byte_map: [0x66bff000,0x66e00000] byte_map_base: 0x668c8000
+
+Marking Bits: (ParMarkBitMap*) 0xb7103880
+ Begin Bits: [0x64300000, 0x65300000)
+ End Bits:   [0x65300000, 0x66300000)
+
+Polling page: 0xb7710000
+
+CodeCache: size=245760Kb used=4330Kb max_used=4340Kb free=241429Kb
+ bounds [0xa71ed000, 0xa7635000, 0xb61ed000]
+ total_blobs=1748 nmethods=1573 adapters=89
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 6.240 Thread 0x637a7000 1568       3       org.eclipse.sisu.inject.MildValues::get (28 bytes)
+Event: 6.241 Thread 0x637a7000 nmethod 1568 0xa7623808 code [0xa7623940, 0xa7623c58]
+Event: 6.241 Thread 0x637a7000 1575       1       com.google.common.collect.Maps$Values::map (5 bytes)
+Event: 6.241 Thread 0x637a7000 nmethod 1575 0xa7613c88 code [0xa7613d80, 0xa7613e20]
+Event: 6.241 Thread 0x637a7000 1576       1       com.google.common.collect.LinkedHashMultimap::access$300 (5 bytes)
+Event: 6.241 Thread 0x637a7000 nmethod 1576 0xa76139c8 code [0xa7613ac0, 0xa7613b40]
+Event: 6.241 Thread 0x637a7000 1577       1       com.google.common.collect.ImmutableMultimap::size (5 bytes)
+Event: 6.241 Thread 0x637a7000 nmethod 1577 0xa7623d88 code [0xa7623e80, 0xa7623f20]
+Event: 6.271 Thread 0x637a5c00 nmethod 1510 0xa7626288 code [0xa7626620, 0xa7627b6c]
+Event: 6.271 Thread 0x637a5c00 1579       4       com.google.inject.internal.asm.$Item::a (354 bytes)
+
+GC Heap History (8 events):
+Event: 0.994 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 19200K, used 16640K [0x918c0000, 0x92e00000, 0xa6e00000)
+  eden space 16640K, 100% used [0x918c0000,0x92900000,0x92900000)
+  from space 2560K, 0% used [0x92b80000,0x92b80000,0x92e00000)
+  to   space 2560K, 0% used [0x92900000,0x92900000,0x92b80000)
+ ParOldGen       total 43776K, used 0K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 0% used [0x66e00000,0x66e00000,0x698c0000)
+ Metaspace       used 4680K, capacity 4714K, committed 4760K, reserved 5424K
+Event: 1.003 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 19200K, used 2555K [0x918c0000, 0x92e00000, 0xa6e00000)
+  eden space 16640K, 0% used [0x918c0000,0x918c0000,0x92900000)
+  from space 2560K, 99% used [0x92900000,0x92b7eca0,0x92b80000)
+  to   space 2560K, 0% used [0x92b80000,0x92b80000,0x92e00000)
+ ParOldGen       total 43776K, used 808K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 1% used [0x66e00000,0x66eca088,0x698c0000)
+ Metaspace       used 4680K, capacity 4714K, committed 4760K, reserved 5424K
+}
+Event: 1.791 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 19200K, used 19195K [0x918c0000, 0x92e00000, 0xa6e00000)
+  eden space 16640K, 100% used [0x918c0000,0x92900000,0x92900000)
+  from space 2560K, 99% used [0x92900000,0x92b7eca0,0x92b80000)
+  to   space 2560K, 0% used [0x92b80000,0x92b80000,0x92e00000)
+ ParOldGen       total 43776K, used 808K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 1% used [0x66e00000,0x66eca088,0x698c0000)
+ Metaspace       used 5305K, capacity 5354K, committed 5400K, reserved 5424K
+Event: 1.798 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 19200K, used 2557K [0x918c0000, 0x92e00000, 0xa6e00000)
+  eden space 16640K, 0% used [0x918c0000,0x918c0000,0x92900000)
+  from space 2560K, 99% used [0x92b80000,0x92dff4c8,0x92e00000)
+  to   space 2560K, 0% used [0x92900000,0x92900000,0x92b80000)
+ ParOldGen       total 43776K, used 836K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 1% used [0x66e00000,0x66ed1088,0x698c0000)
+ Metaspace       used 5305K, capacity 5354K, committed 5400K, reserved 5424K
+}
+Event: 2.296 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 19200K, used 19197K [0x918c0000, 0x92e00000, 0xa6e00000)
+  eden space 16640K, 100% used [0x918c0000,0x92900000,0x92900000)
+  from space 2560K, 99% used [0x92b80000,0x92dff4c8,0x92e00000)
+  to   space 2560K, 0% used [0x92900000,0x92900000,0x92b80000)
+ ParOldGen       total 43776K, used 836K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 1% used [0x66e00000,0x66ed1088,0x698c0000)
+ Metaspace       used 6660K, capacity 6743K, committed 6808K, reserved 7472K
+Event: 2.312 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 19200K, used 2549K [0x918c0000, 0x93e40000, 0xa6e00000)
+  eden space 16640K, 0% used [0x918c0000,0x918c0000,0x92900000)
+  from space 2560K, 99% used [0x92900000,0x92b7d5f8,0x92b80000)
+  to   space 2560K, 0% used [0x93bc0000,0x93bc0000,0x93e40000)
+ ParOldGen       total 43776K, used 2224K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 5% used [0x66e00000,0x6702c008,0x698c0000)
+ Metaspace       used 6660K, capacity 6743K, committed 6808K, reserved 7472K
+}
+Event: 3.895 GC heap before
+{Heap before GC invocations=4 (full 0):
+ PSYoungGen      total 19200K, used 19189K [0x918c0000, 0x93e40000, 0xa6e00000)
+  eden space 16640K, 100% used [0x918c0000,0x92900000,0x92900000)
+  from space 2560K, 99% used [0x92900000,0x92b7d5f8,0x92b80000)
+  to   space 2560K, 0% used [0x93bc0000,0x93bc0000,0x93e40000)
+ ParOldGen       total 43776K, used 2224K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 5% used [0x66e00000,0x6702c008,0x698c0000)
+ Metaspace       used 8093K, capacity 8190K, committed 8344K, reserved 8496K
+Event: 3.994 GC heap after
+Heap after GC invocations=4 (full 0):
+ PSYoungGen      total 35840K, used 2544K [0x918c0000, 0x93e40000, 0xa6e00000)
+  eden space 33280K, 0% used [0x918c0000,0x918c0000,0x93940000)
+  from space 2560K, 99% used [0x93bc0000,0x93e3c070,0x93e40000)
+  to   space 2560K, 0% used [0x93940000,0x93940000,0x93bc0000)
+ ParOldGen       total 43776K, used 4342K [0x66e00000, 0x698c0000, 0x918c0000)
+  object space 43776K, 9% used [0x66e00000,0x6723dac8,0x698c0000)
+ Metaspace       used 8093K, capacity 8190K, committed 8344K, reserved 8496K
+}
+
+Deoptimization events (10 events):
+Event: 1.184 Thread 0xb6207800 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa739bafc method=java.nio.charset.CoderResult.isOverflow()Z @ 5
+Event: 1.373 Thread 0xb6207800 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa73bb504 method=java.nio.charset.CoderResult.isOverflow()Z @ 5
+Event: 1.414 Thread 0xb6207800 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa73c7540 method=sun.nio.cs.StreamDecoder.implRead([CII)I @ 71
+Event: 1.645 Thread 0xb6207800 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa73d679c method=java.io.Reader.read()I @ 12
+Event: 4.925 Thread 0xb6207800 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa7454ca0 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 206
+Event: 5.838 Thread 0xb6207800 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa753cce0 method=com.google.inject.internal.asm.$Item.a(Lcom/google/inject/internal/asm/$Item;)Z @ 345
+Event: 6.247 Thread 0xb6207800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xa7536614 method=java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; @ 38
+Event: 6.247 Thread 0xb6207800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xa7536614 method=java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; @ 38
+Event: 6.247 Thread 0xb6207800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xa7536614 method=java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; @ 38
+Event: 6.247 Thread 0xb6207800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0xa7536614 method=java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; @ 38
+
+Internal exceptions (10 events):
+Event: 1.081 Thread 0xb6207800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x919f1670) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1.083 Thread 0xb6207800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x919f3b50) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1.083 Thread 0xb6207800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x919f4788) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1.084 Thread 0xb6207800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x919f5b40) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1.084 Thread 0xb6207800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x919f6718) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1.084 Thread 0xb6207800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x919f7c40) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1.085 Thread 0xb6207800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 86> (0x919f9ac0) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/interpreter/interpreterRuntime.cpp, line 366]
+Event: 5.086 Thread 0xb6207800 Exception <a 'java/lang/NoClassDefFoundError': com/google/inject/servlet/ServletModuleTargetVisitor> (0x922a3e88) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 199]
+Event: 5.086 Thread 0xb6207800 Exception <a 'java/lang/NoClassDefFoundError'> (0x922a3e88) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/prims/jvm.cpp, line 1394]
+Event: 5.091 Thread 0xb6207800 Exception <a 'java/lang/NoClassDefFoundError': javax/annotation/Priority> (0x922a8e90) thrown at [/build/openjdk-8-Y4imzb/openjdk-8-8u151-b12/src/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 199]
+
+Events (10 events):
+Event: 6.279 loading class sun/security/jca/ProviderList$3
+Event: 6.279 loading class sun/security/jca/ProviderList$3 done
+Event: 6.280 loading class sun/security/jca/ProviderList$1
+Event: 6.280 loading class sun/security/jca/ProviderList$1 done
+Event: 6.280 loading class java/security/Provider$ServiceKey
+Event: 6.280 loading class java/security/Provider$ServiceKey done
+Event: 6.280 loading class java/security/Provider$EngineDescription
+Event: 6.281 loading class java/security/Provider$EngineDescription done
+Event: 6.282 loading class sun/misc/FloatingDecimal
+Event: 6.282 loading class sun/misc/FloatingDecimal done
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:01 1693306    /usr/lib/jvm/java-8-openjdk-i386/jre/bin/java
+08049000-0804a000 r--p 00000000 08:01 1693306    /usr/lib/jvm/java-8-openjdk-i386/jre/bin/java
+0804a000-0804b000 rw-p 00001000 08:01 1693306    /usr/lib/jvm/java-8-openjdk-i386/jre/bin/java
+09966000-09987000 rw-p 00000000 00:00 0          [heap]
+61d00000-61d21000 rw-p 00000000 00:00 0 
+61d21000-61e00000 ---p 00000000 00:00 0 
+61f00000-61f4b000 rw-p 00000000 00:00 0 
+61f4b000-62000000 ---p 00000000 00:00 0 
+62100000-621f8000 rw-p 00000000 00:00 0 
+621f8000-62200000 ---p 00000000 00:00 0 
+62200000-622c0000 rw-p 00000000 00:00 0 
+622e0000-62300000 ---p 00000000 00:00 0 
+62300000-6239b000 rw-p 00000000 00:00 0 
+6239b000-62400000 ---p 00000000 00:00 0 
+62400000-62500000 rw-p 00000000 00:00 0 
+62500000-62600000 rw-p 00000000 00:00 0 
+62600000-62700000 rw-p 00000000 00:00 0 
+62700000-62800000 rw-p 00000000 00:00 0 
+62800000-62900000 rw-p 00000000 00:00 0 
+62900000-629fe000 rw-p 00000000 00:00 0 
+629fe000-62a00000 ---p 00000000 00:00 0 
+62a00000-62adc000 rw-p 00000000 00:00 0 
+62adc000-62b00000 ---p 00000000 00:00 0 
+62b00000-62bff000 rw-p 00000000 00:00 0 
+62bff000-62c00000 ---p 00000000 00:00 0 
+62c00000-62d00000 rw-p 00000000 00:00 0 
+62d00000-62eff000 rw-p 00000000 00:00 0 
+62eff000-62f00000 ---p 00000000 00:00 0 
+62f00000-62ffb000 rw-p 00000000 00:00 0 
+62ffb000-63000000 ---p 00000000 00:00 0 
+63009000-63016000 r--s 0008d000 08:01 1149531    /usr/share/java/maven3-core-3.3.9.jar
+63016000-63017000 r--s 00001000 08:01 1149511    /usr/share/java/wagon-file-2.x.jar
+63017000-6301a000 r--s 00007000 08:01 1149537    /usr/share/java/maven3-settings-builder-3.3.9.jar
+6301a000-63021000 r--s 0002c000 08:01 1149509    /usr/share/java/sisu-plexus.jar
+63021000-63029000 r--s 00054000 08:01 1149507    /usr/share/java/sisu-inject.jar
+63029000-6305a000 r--s 00207000 08:01 1149515    /usr/share/java/wagon-http-shaded-2.x.jar
+6305a000-6305b000 ---p 00000000 00:00 0 
+6305b000-630db000 rw-p 00000000 00:00 0 
+630db000-630de000 ---p 00000000 00:00 0 
+630de000-6312c000 rw-p 00000000 00:00 0 
+6312c000-6312f000 ---p 00000000 00:00 0 
+6312f000-631ad000 rw-p 00000000 00:00 0 
+631ad000-631b0000 ---p 00000000 00:00 0 
+631b0000-6322e000 rw-p 00000000 00:00 0 
+6322e000-63231000 ---p 00000000 00:00 0 
+63231000-632af000 rw-p 00000000 00:00 0 
+632af000-632b2000 ---p 00000000 00:00 0 
+632b2000-63300000 rw-p 00000000 00:00 0 
+63300000-63500000 r--p 00000000 08:01 1110568    /usr/lib/locale/locale-archive
+63500000-635f9000 rw-p 00000000 00:00 0 
+635f9000-63600000 ---p 00000000 00:00 0 
+63600000-63621000 rw-p 00000000 00:00 0 
+63621000-63700000 ---p 00000000 00:00 0 
+63700000-637fe000 rw-p 00000000 00:00 0 
+637fe000-63800000 ---p 00000000 00:00 0 
+63800000-63802000 r--s 0000d000 08:01 1149536    /usr/share/java/maven3-aether-provider-3.3.9.jar
+63802000-63806000 r--s 00027000 08:01 1145546    /usr/share/java/commons-io-2.4.jar
+63806000-6380d000 r--s 0005d000 08:01 1149254    /usr/share/java/commons-lang3.jar
+6380d000-6380f000 r--s 0000e000 08:01 1149271    /usr/share/java/plexus-interpolation.jar
+6380f000-63813000 r--s 00027000 08:01 1149367    /usr/share/java/eclipse-aether-impl.jar
+63813000-63816000 ---p 00000000 00:00 0 
+63816000-63864000 rw-p 00000000 00:00 0 
+63864000-63865000 ---p 00000000 00:00 0 
+63865000-638e5000 rw-p 00000000 00:00 0 
+638e5000-63ab4000 r--s 03c21000 08:01 1693223    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/rt.jar
+63ab4000-63efa000 rw-p 00000000 00:00 0 
+63efa000-63f00000 ---p 00000000 00:00 0 
+63f00000-66300000 rw-p 00000000 00:00 0 
+66300000-663ff000 rw-p 00000000 00:00 0 
+663ff000-66400000 ---p 00000000 00:00 0 
+66400000-66402000 r--s 00006000 08:01 1149372    /usr/share/java/eclipse-aether-spi.jar
+66402000-6642e000 r--s 00208000 08:01 1148516    /usr/share/java/guava.jar
+6642e000-66431000 ---p 00000000 00:00 0 
+66431000-6647f000 rw-p 00000000 00:00 0 
+6647f000-66480000 ---p 00000000 00:00 0 
+66480000-66500000 rw-p 00000000 00:00 0 
+66500000-665fa000 rw-p 00000000 00:00 0 
+665fa000-66600000 ---p 00000000 00:00 0 
+66600000-66601000 r--s 00004000 08:01 1145398    /usr/share/java/atinject-jsr330-tck-1.0.jar
+66601000-66602000 r--s 00008000 08:01 1149370    /usr/share/java/eclipse-aether-connector-basic.jar
+66602000-66604000 r--s 00005000 08:01 1149373    /usr/share/java/eclipse-aether-transport-wagon.jar
+66604000-66606000 r--s 00001000 08:01 1149403    /usr/share/java/aopalliance-1.0.jar
+66606000-66608000 r--s 00001000 08:01 1149538    /usr/share/java/maven3-builder-support-3.3.9.jar
+66608000-6660d000 r--s 0001d000 08:01 1149374    /usr/share/java/eclipse-aether-api.jar
+6660d000-6660f000 r--s 00002000 08:01 1149449    /usr/share/java/plexus-cipher.jar
+6660f000-66610000 r--s 00002000 08:01 1149066    /usr/share/java/slf4j-simple.jar
+66610000-66612000 r--s 00013000 08:01 1149534    /usr/share/java/maven3-embedder-3.3.9.jar
+66612000-66614000 r--s 00027000 08:01 1149535    /usr/share/java/maven3-model-3.3.9.jar
+66614000-66616000 r--s 0000a000 08:01 1147016    /usr/share/java/commons-cli-1.3.1.jar
+66616000-66618000 r--s 0000a000 08:01 1149512    /usr/share/java/wagon-provider-api-2.x.jar
+66618000-6661b000 r--s 0000a000 08:01 1149539    /usr/share/java/maven3-artifact-3.3.9.jar
+6661b000-6661f000 r--s 00020000 08:01 1149392    /usr/share/java/eclipse-aether-util.jar
+6661f000-66620000 r--s 00006000 08:01 1149532    /usr/share/java/maven3-repository-metadata-3.3.9.jar
+66620000-66622000 r--s 00007000 08:01 1149069    /usr/share/java/slf4j-api.jar
+66622000-66626000 r--s 00038000 08:01 1149495    /usr/share/java/plexus-utils2.jar
+66626000-6662c000 r--s 00048000 08:01 1149288    /usr/share/java/jsoup.jar
+6662c000-66631000 r--s 00025000 08:01 1149533    /usr/share/java/maven3-model-builder-3.3.9.jar
+66631000-6667f000 rw-p 00000000 00:00 0 
+6667f000-66680000 ---p 00000000 00:00 0 
+66680000-66700000 rw-p 00000000 00:00 0 
+66700000-66721000 rw-p 00000000 00:00 0 
+66721000-66800000 ---p 00000000 00:00 0 
+66800000-66801000 r--s 0000a000 08:01 1149528    /usr/share/java/maven3-settings-3.3.9.jar
+66801000-66802000 r--s 00001000 08:01 1149518    /usr/share/java/wagon-http-shared-2.x.jar
+66802000-66804000 r--s 0000a000 08:01 1149529    /usr/share/java/maven3-plugin-api-3.3.9.jar
+66804000-66809000 r--s 00040000 08:01 1145678    /usr/share/java/commons-lang-2.6.jar
+66809000-66824000 r--s 00394000 08:01 1693228    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/cldrdata.jar
+66824000-6687f000 rw-p 00000000 00:00 0 
+6687f000-66880000 ---p 00000000 00:00 0 
+66880000-66900000 rw-p 00000000 00:00 0 
+66900000-66921000 rw-p 00000000 00:00 0 
+66921000-66a00000 ---p 00000000 00:00 0 
+66a00000-66a01000 r--s 00006000 08:01 1149451    /usr/share/java/plexus-sec-dispatcher.jar
+66a01000-66a03000 r--s 00000000 08:01 1149499    /usr/share/java/plexus-component-annotations-1.5.jar
+66a03000-66a04000 r--s 00000000 08:01 1149240    /usr/share/java/geronimo-interceptor-3.0-spec-1.0.1.jar
+66a04000-66a06000 r--s 00012000 08:01 1144777    /usr/share/java/el-api-3.0.jar
+66a06000-66a0d000 r--s 00041000 08:01 1149530    /usr/share/java/maven3-compat-3.3.9.jar
+66a0d000-66a28000 r--s 001d6000 08:01 1693230    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/nashorn.jar
+66a28000-66a29000 ---p 00000000 00:00 0 
+66a29000-66abf000 rw-p 00000000 00:00 0 
+66abf000-66bff000 ---p 00000000 00:00 0 
+66bff000-66c15000 rw-p 00000000 00:00 0 
+66c15000-66d54000 ---p 00000000 00:00 0 
+66d54000-66d68000 rw-p 00000000 00:00 0 
+66d68000-66dff000 ---p 00000000 00:00 0 
+66dff000-698c0000 rw-p 00000000 00:00 0 
+698c0000-918c0000 ---p 00000000 00:00 0 
+918c0000-93e40000 rw-p 00000000 00:00 0 
+93e40000-a6e00000 ---p 00000000 00:00 0 
+a6e00000-a6e03000 r--s 00008000 08:01 1149246    /usr/share/java/cdi-api-1.0.jar
+a6e03000-a6e11000 r--s 00095000 08:01 1149408    /usr/share/java/guice.jar
+a6e11000-a6e13000 r--s 0000a000 08:01 1149493    /usr/share/java/plexus-classworlds2-2.5.2.jar
+a6e13000-a6e15000 r--s 00008000 08:01 1693232    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunec.jar
+a6e15000-a6e3f000 rw-p 00000000 00:00 0 
+a6e3f000-a71ed000 ---p 00000000 00:00 0 
+a71ed000-a7635000 rwxp 00000000 00:00 0 
+a7635000-b61ed000 ---p 00000000 00:00 0 
+b61ed000-b61f8000 r-xp 00000000 08:01 3402889    /lib/i386-linux-gnu/libnss_files-2.23.so
+b61f8000-b61f9000 r--p 0000a000 08:01 3402889    /lib/i386-linux-gnu/libnss_files-2.23.so
+b61f9000-b61fa000 rw-p 0000b000 08:01 3402889    /lib/i386-linux-gnu/libnss_files-2.23.so
+b61fa000-b6200000 rw-p 00000000 00:00 0 
+b6200000-b62fb000 rw-p 00000000 00:00 0 
+b62fb000-b6300000 ---p 00000000 00:00 0 
+b6300000-b6301000 r--s 00000000 08:01 1145399    /usr/share/java/atinject-jsr330-api-1.0.jar
+b6301000-b6307000 r--s 0003a000 08:01 1693231    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunjce_provider.jar
+b6307000-b6311000 r--s 00116000 08:01 1693233    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/localedata.jar
+b6311000-b631c000 r-xp 00000000 08:01 3402895    /lib/i386-linux-gnu/libnss_nis-2.23.so
+b631c000-b631d000 r--p 0000a000 08:01 3402895    /lib/i386-linux-gnu/libnss_nis-2.23.so
+b631d000-b631e000 rw-p 0000b000 08:01 3402895    /lib/i386-linux-gnu/libnss_nis-2.23.so
+b631e000-b6335000 r-xp 00000000 08:01 3402652    /lib/i386-linux-gnu/libnsl-2.23.so
+b6335000-b6336000 r--p 00016000 08:01 3402652    /lib/i386-linux-gnu/libnsl-2.23.so
+b6336000-b6337000 rw-p 00017000 08:01 3402652    /lib/i386-linux-gnu/libnsl-2.23.so
+b6337000-b6339000 rw-p 00000000 00:00 0 
+b6339000-b6341000 r-xp 00000000 08:01 3402720    /lib/i386-linux-gnu/libnss_compat-2.23.so
+b6341000-b6342000 r--p 00007000 08:01 3402720    /lib/i386-linux-gnu/libnss_compat-2.23.so
+b6342000-b6343000 rw-p 00008000 08:01 3402720    /lib/i386-linux-gnu/libnss_compat-2.23.so
+b6343000-b6344000 r--s 00010000 08:01 1693229    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/zipfs.jar
+b6344000-b6346000 r--s 00001000 08:01 1693236    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/dnsns.jar
+b6346000-b6349000 r--s 0000f000 08:01 1693227    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/icedtea-sound.jar
+b6349000-b6351000 r-xp 00000000 08:01 1693277    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libzip.so
+b6351000-b6352000 r--p 00007000 08:01 1693277    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libzip.so
+b6352000-b6353000 rw-p 00008000 08:01 1693277    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libzip.so
+b6353000-b635b000 rw-s 00000000 08:01 2577440    /tmp/hsperfdata_sarnobat/21299
+b635b000-b6382000 r-xp 00000000 08:01 1693258    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libjava.so
+b6382000-b6383000 r--p 00026000 08:01 1693258    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libjava.so
+b6383000-b6384000 rw-p 00027000 08:01 1693258    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libjava.so
+b6384000-b638b000 r-xp 00000000 08:01 3402905    /lib/i386-linux-gnu/librt-2.23.so
+b638b000-b638c000 r--p 00006000 08:01 3402905    /lib/i386-linux-gnu/librt-2.23.so
+b638c000-b638d000 rw-p 00007000 08:01 3402905    /lib/i386-linux-gnu/librt-2.23.so
+b638d000-b6390000 ---p 00000000 00:00 0 
+b6390000-b63de000 rw-p 00000000 00:00 0 
+b63de000-b63fa000 r-xp 00000000 08:01 3402590    /lib/i386-linux-gnu/libgcc_s.so.1
+b63fa000-b63fb000 rw-p 0001b000 08:01 3402590    /lib/i386-linux-gnu/libgcc_s.so.1
+b63fb000-b644e000 r-xp 00000000 08:01 3402651    /lib/i386-linux-gnu/libm-2.23.so
+b644e000-b644f000 r--p 00052000 08:01 3402651    /lib/i386-linux-gnu/libm-2.23.so
+b644f000-b6450000 rw-p 00053000 08:01 3402651    /lib/i386-linux-gnu/libm-2.23.so
+b6450000-b65bd000 r-xp 00000000 08:01 1104849    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b65bd000-b65be000 ---p 0016d000 08:01 1104849    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b65be000-b65c3000 r--p 0016d000 08:01 1104849    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b65c3000-b65c4000 rw-p 00172000 08:01 1104849    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.21
+b65c4000-b65c7000 rw-p 00000000 00:00 0 
+b65c7000-b7098000 r-xp 00000000 08:01 1693269    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server/libjvm.so
+b7098000-b70de000 r--p 00ad0000 08:01 1693269    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server/libjvm.so
+b70de000-b70f5000 rw-p 00b16000 08:01 1693269    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/server/libjvm.so
+b70f5000-b7515000 rw-p 00000000 00:00 0 
+b7515000-b752e000 r-xp 00000000 08:01 3402662    /lib/i386-linux-gnu/libpthread-2.23.so
+b752e000-b752f000 r--p 00018000 08:01 3402662    /lib/i386-linux-gnu/libpthread-2.23.so
+b752f000-b7530000 rw-p 00019000 08:01 3402662    /lib/i386-linux-gnu/libpthread-2.23.so
+b7530000-b7532000 rw-p 00000000 00:00 0 
+b7532000-b7535000 r-xp 00000000 08:01 3402697    /lib/i386-linux-gnu/libdl-2.23.so
+b7535000-b7536000 r--p 00002000 08:01 3402697    /lib/i386-linux-gnu/libdl-2.23.so
+b7536000-b7537000 rw-p 00003000 08:01 3402697    /lib/i386-linux-gnu/libdl-2.23.so
+b7537000-b7538000 rw-p 00000000 00:00 0 
+b7538000-b7551000 r-xp 00000000 08:01 3402741    /lib/i386-linux-gnu/libz.so.1.2.8
+b7551000-b7552000 r--p 00018000 08:01 3402741    /lib/i386-linux-gnu/libz.so.1.2.8
+b7552000-b7553000 rw-p 00019000 08:01 3402741    /lib/i386-linux-gnu/libz.so.1.2.8
+b7553000-b7703000 r-xp 00000000 08:01 3402663    /lib/i386-linux-gnu/libc-2.23.so
+b7703000-b7705000 r--p 001af000 08:01 3402663    /lib/i386-linux-gnu/libc-2.23.so
+b7705000-b7706000 rw-p 001b1000 08:01 3402663    /lib/i386-linux-gnu/libc-2.23.so
+b7706000-b7709000 rw-p 00000000 00:00 0 
+b7709000-b770a000 r--s 0000a000 08:01 1693235    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/jaccess.jar
+b770a000-b770e000 r--s 00037000 08:01 1693234    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/ext/sunpkcs11.jar
+b770e000-b770f000 r--p 002d4000 08:01 1110568    /usr/lib/locale/locale-archive
+b770f000-b7710000 rw-p 00000000 00:00 0 
+b7710000-b7711000 r--p 00000000 00:00 0 
+b7711000-b771f000 r-xp 00000000 08:01 1693275    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libverify.so
+b771f000-b7720000 r--p 0000d000 08:01 1693275    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libverify.so
+b7720000-b7721000 rw-p 0000e000 08:01 1693275    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/libverify.so
+b7721000-b772e000 r-xp 00000000 08:01 1693273    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/jli/libjli.so
+b772e000-b772f000 r--p 0000c000 08:01 1693273    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/jli/libjli.so
+b772f000-b7730000 rw-p 0000d000 08:01 1693273    /usr/lib/jvm/java-8-openjdk-i386/jre/lib/i386/jli/libjli.so
+b7730000-b7731000 rw-p 00000000 00:00 0 
+b7731000-b7733000 r--p 00000000 00:00 0          [vvar]
+b7733000-b7734000 r-xp 00000000 00:00 0          [vdso]
+b7734000-b7757000 r-xp 00000000 08:01 3402661    /lib/i386-linux-gnu/ld-2.23.so
+b7757000-b7758000 r--p 00022000 08:01 3402661    /lib/i386-linux-gnu/ld-2.23.so
+b7758000-b7759000 rw-p 00023000 08:01 3402661    /lib/i386-linux-gnu/ld-2.23.so
+bfc93000-bfcb4000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dclassworlds.conf=/usr/share/maven/bin/m2.conf -Dmaven.home=/usr/share/maven -Dmaven.multiModuleProjectDirectory=/home/sarnobat/github/maven_project 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher --quiet --settings /home/sarnobat/sarnobat.git/mac/.m2/settings.xml install exec:java -Dexec.mainClass=Md5RoList -Dexec.args=4485
+java_class_path (initial): /usr/share/maven/boot/plexus-classworlds-2.x.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-i386
+PATH=/usr/bin:/bin
+SHELL=/bin/sh
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x8d7370], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x8d7370], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x73d1c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x73d000], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x73d790], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
+
+uname:Linux 4.4.0-104-generic #127-Ubuntu SMP Mon Dec 11 12:16:50 UTC 2017 i686
+libc:glibc 2.23 NPTL 2.23 
+rlimit: STACK 8192k, CORE 0k, NPROC 63057, NOFILE 1048576, AS infinity
+load average:3.15 2.53 2.43
+
+/proc/meminfo:
+MemTotal:        8107456 kB
+MemFree:          379596 kB
+MemAvailable:          0 kB
+Buffers:            4492 kB
+Cached:           207292 kB
+SwapCached:        20024 kB
+Active:          6151172 kB
+Inactive:        1369148 kB
+Active(anon):    6129856 kB
+Inactive(anon):  1351468 kB
+Active(file):      21316 kB
+Inactive(file):    17680 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+HighTotal:       7292552 kB
+HighFree:          89612 kB
+LowTotal:         814904 kB
+LowFree:          289984 kB
+SwapTotal:       4007932 kB
+SwapFree:              0 kB
+Dirty:              1056 kB
+Writeback:             0 kB
+AnonPages:       7288964 kB
+Mapped:            31300 kB
+Shmem:            172460 kB
+Slab:              98488 kB
+SReclaimable:      51312 kB
+SUnreclaim:        47176 kB
+KernelStack:       16576 kB
+PageTables:        46192 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     8061660 kB
+Committed_AS:   25947308 kB
+VmallocTotal:     122880 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+AnonHugePages:   4343808 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       34808 kB
+DirectMap2M:      876544 kB
+
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, ht, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3427U CPU @ 1.80GHz
+stepping	: 9
+microcode	: 0x17
+cpu MHz		: 1333.011
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 4589.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3427U CPU @ 1.80GHz
+stepping	: 9
+microcode	: 0x17
+cpu MHz		: 1299.679
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 4589.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3427U CPU @ 1.80GHz
+stepping	: 9
+microcode	: 0x17
+cpu MHz		: 1299.769
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 4589.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3427U CPU @ 1.80GHz
+stepping	: 9
+microcode	: 0x17
+cpu MHz		: 1299.679
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 4589.86
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 8107456k(379348k free), swap 4007932k(0k free)
+
+vm_info: OpenJDK Server VM (25.151-b12) for linux-x86 JRE (1.8.0_151-8u151-b12-0ubuntu0.16.04.2-b12), built on Oct 27 2017 22:05:04 by "buildd" with gcc 5.4.0 20160609
+
+time: Sat Mar 24 03:56:07 2018
+elapsed time: 6 seconds (0d 0h 0m 6s)
+
